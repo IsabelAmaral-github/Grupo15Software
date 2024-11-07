@@ -1,0 +1,97 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial Black', Arial, sans-serif;
+    background-color: #e0e0e0;
+    color: #333;
+}
+
+/* Estilo da seção explore */
+#explore {
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+    text-align: center;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
+    border-top: 4px solid #008037;
+    border-bottom: 4px solid #004d26;
+}
+
+#explore h2 {
+    color: #007BFF; /* Azul vibrante */
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#explore p {
+    font-size: 1.1rem;
+    color: #555;
+    font-style: italic;
+    margin-bottom: 30px;
+}
+
+/* Galeria de Produtos */
+.product-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Exibe 2 colunas */
+    gap: 20px;
+    justify-items: center;
+}
+
+/* Cartões de produto */
+.product-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+    transition: transform 0.2s ease;
+}
+
+
+.product-image {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+/* Botão de compra */
+.buy-btn {
+    padding: 12px 25px;
+    background-color: #008037;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.buy-btn:hover {
+    background-color: #004d26;
+    transform: scale(1.05);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .product-gallery {
+        grid-template-columns: 1fr; /* Exibe 1 coluna em telas menores */
+    }
+}
