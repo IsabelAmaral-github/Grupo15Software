@@ -1,4 +1,4 @@
-/* Reset básico */
+
 * {
     margin: 0;
     padding: 0;
@@ -11,7 +11,7 @@ body {
     color: #333;
 }
 
-/* Estilo da seção explore */
+
 #explore {
     width: 90%;
     max-width: 1200px;
@@ -26,7 +26,7 @@ body {
 }
 
 #explore h2 {
-    color: #007BFF; /* Azul vibrante */
+    color: #007BFF; 
     font-size: 2.5rem;
     margin-bottom: 15px;
     text-transform: uppercase;
@@ -40,15 +40,15 @@ body {
     margin-bottom: 30px;
 }
 
-/* Galeria de Produtos */
+
 .product-gallery {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Exibe 2 colunas */
+    grid-template-columns: repeat(2, 1fr); 
     gap: 20px;
     justify-items: center;
 }
 
-/* Cartões de produto */
+
 .product-card {
     background-color: #fff;
     padding: 20px;
@@ -69,7 +69,7 @@ body {
     margin-bottom: 15px;
 }
 
-/* Botão de compra */
+
 .buy-btn {
     padding: 12px 25px;
     background-color: #008037;
@@ -89,9 +89,31 @@ body {
     transform: scale(1.05);
 }
 
-/* Responsividade */
-@media (max-width: 768px) {
-    .product-gallery {
-        grid-template-columns: 1fr; /* Exibe 1 coluna em telas menores */
-    }
+.back-home-btn {
+    display: inline-block;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    padding: 10px 20px;
+    background-color: #008037;
+    color: #fff;
+    font-size: 1.1rem;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
+
+.back-home-btn:hover {
+    background-color: #004d26;
+    transform: scale(1.05);
+}
+
+.back-home-btn i {
+    font-size: 1.3rem;
+}
+
+
