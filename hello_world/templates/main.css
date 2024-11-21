@@ -403,7 +403,7 @@ input[type="color"] {
 input[type="text"] {
   padding: 12px;
   width: 100%;
-  max-width: 200px; /* Aumenta a largura do input */
+  max-width: 200px; 
   border: 2px solid #004d26; 
   border-radius: 5px;
   font-size: 1.1rem;
