@@ -18,6 +18,37 @@
 <body>
     <div class="App">
         
+        <section id="login" class="form-section">
+            <h2>Login</h2>
+            <form action="/login" method="POST">
+                <label for="email-login">E-mail:</label>
+                <input type="email" id="email-login" name="email" placeholder="Digite seu e-mail" required>
+        
+                <label for="senha-login">Senha:</label>
+                <input type="password" id="senha-login" name="senha" placeholder="Digite sua senha" required>
+        
+                <button type="submit">Entrar</button>
+            </form>
+            <p>Não tem uma conta? <a href="#cadastro">Cadastre-se aqui</a>.</p>
+        </section>
+
+        <section id="cadastro" class="form-section">
+            <h2>Cadastro</h2>
+            <form action="/cadastro" method="POST">
+                <label for="nome-cadastro">Nome:</label>
+                <input type="text" id="nome-cadastro" name="nome" placeholder="Digite seu nome completo" required>
+        
+                <label for="email-cadastro">E-mail:</label>
+                <input type="email" id="email-cadastro" name="email" placeholder="Digite seu e-mail" required>
+        
+                <label for="senha-cadastro">Senha:</label>
+                <input type="password" id="senha-cadastro" name="senha" placeholder="Digite sua senha" required>
+        
+                <button type="submit">Cadastrar</button>
+            </form>
+            <p>Já tem uma conta? <a href="#login">Faça login aqui</a>.</p>
+            </section>
+
         <section class="custom-section">
             <h1>Desing em Campo</h1>
             <p>Vista seu time, Mostre Seu Estilo</p>
@@ -32,7 +63,7 @@
         <section id="personalizacao" class="form-section">
             <h2>Personalize sua Camisa</h2>
             <form>
-
+                
                 <label for="nome-time">Nome do Time:</label>
                 <select id="nome-time" name="nome-time" required>
                     <option value="">Selecione um time</option>
