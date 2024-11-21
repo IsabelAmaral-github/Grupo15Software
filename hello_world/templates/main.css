@@ -178,3 +178,87 @@ button:hover {
   font-weight: bold;
   font-size: 1.1rem;
 }
+
+#login, #cadastro {
+  width: 90%;
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
+  border-top: 4px solid #0066cc; 
+  border-bottom: 4px solid #004d99;
+}
+
+#login h2, #cadastro h2 {
+  font-size: 2rem;
+  color: #0066cc; 
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+#login form, #cadastro form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+#login label, #cadastro label {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+  text-align: left;
+}
+
+#login input, #cadastro input {
+  padding: 12px;
+  border: 2px solid #004d99; 
+  border-radius: 5px;
+  font-size: 1.1rem;
+  width: 100%;
+  background-color: #f7f7f7;
+  color: #333;
+  transition: border-color 0.3s ease;
+}
+
+#login input:focus, #cadastro input:focus {
+  border-color: #0066cc;
+}
+
+#login button, #cadastro button {
+  padding: 12px 25px;
+  background-color: #0066cc; 
+  color: white;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#login button:hover, #cadastro button:hover {
+  background-color: #004d99;
+  transform: scale(1.05);
+}
+
+#login p, #cadastro p {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+#login a, #cadastro a {
+  color: #0066cc;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+#login a:hover, #cadastro a:hover {
+  color: #004d99;
+}
+
