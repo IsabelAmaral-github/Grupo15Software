@@ -1,4 +1,269 @@
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial Black', Arial, sans-serif;
+  background-color: #e0e0e0;
+  color: #333;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+
+.App-header {
+  background-color: #008037;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  width: 100%;
+  border-radius: 8px;
+  border-bottom: 4px solid #004d26; 
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.App-logo {
+  width: 120px;
+  height: auto;
+  margin-bottom: 10px;
+  transition: transform 0.2s ease;
+}
+
+.App-logo:hover {
+  transform: scale(1.1);
+}
+
+.App-header p {
+  font-size: 1.4rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.App-header .small {
+  font-size: 1rem;
+  color: #d4f3d4;
+}
+
+.heart {
+  color: #0066cc; 
+}
+
+.custom-section, .info-section, .form-section {
+  width: 90%;
+  max-width: 700px;
+  margin: 20px auto;
+  text-align: center;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
+  border-top: 4px solid #008037; 
+  border-bottom: 4px solid #004d26;
+}
+
+.custom-section h1, .info-section h2, .form-section h2 {
+  color: #0066cc; 
+  font-size: 2rem;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.custom-section p {
+  font-size: 1.1rem;
+  color: #555;
+  font-style: italic;
+}
+
+.custom-section a {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 12px 25px;
+  background-color: #0066cc; 
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.custom-section a:hover {
+  background-color: #004d99; 
+  transform: scale(1.05);
+}
+
+
+.form-section form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+label {
+  font-size: 1rem;
+  color: #333;
+  font-weight: bold;
+  text-align: left;
+  width: 100%;
+  max-width: 450px;
+}
+
+select, input[type="number"] {
+  padding: 12px;
+  width: 100%;
+  max-width: 450px;
+  border: 2px solid #004d26; 
+  border-radius: 5px;
+  font-size: 1.1rem;
+  color: #333;
+  background-color: #f7f7f7;
+  transition: border-color 0.3s ease;
+}
+input[type="color"]{
+  padding: 0px;
+  width: 100%;
+  max-width: 450px;
+  border: 2px solid #004d26; 
+  border-radius: 5px;
+  font-size: 1.1rem;
+  color: #333;
+  background-color: #f7f7f7;
+  transition: border-color 0.3s ease;
+}
+
+select:focus, input[type="color"]:focus, input[type="number"]:focus {
+  border-color: #0066cc; 
+}
+
+button {
+  padding: 12px 25px;
+  background-color: #008037; 
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #004d26; 
+  transform: scale(1.05);
+}
+
+
+.footer-section {
+  width: 100%;
+  background-color: #008037; 
+  color: #fff;
+  text-align: center;
+  padding: 15px;
+  margin-top: 20px;
+  border-radius: 8px;
+  border-top: 4px solid #004d26; 
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+#login, #cadastro {
+  width: 90%;
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
+  border-top: 4px solid #0066cc; 
+  border-bottom: 4px solid #004d99;
+}
+
+#login h2, #cadastro h2 {
+  font-size: 2rem;
+  color: #0066cc; 
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+#login form, #cadastro form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+#login label, #cadastro label {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+  text-align: left;
+}
+
+#login input, #cadastro input {
+  padding: 12px;
+  border: 2px solid #004d99; 
+  border-radius: 5px;
+  font-size: 1.1rem;
+  width: 100%;
+  background-color: #f7f7f7;
+  color: #333;
+  transition: border-color 0.3s ease;
+}
+
+#login input:focus, #cadastro input:focus {
+  border-color: #0066cc;
+}
+
+#login button, #cadastro button {
+  padding: 12px 25px;
+  background-color: #0066cc; 
+  color: white;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#login button:hover, #cadastro button:hover {
+  background-color: #004d99;
+  transform: scale(1.05);
+}
+
+#login p, #cadastro p {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+#login a, #cadastro a {
+  color: #0066cc;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+#login a:hover, #cadastro a:hover {
+  color: #004d99;
+}
+
+
+
 .shirt-color-picker {
   display: flex;
   flex-direction: column;
