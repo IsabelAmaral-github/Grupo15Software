@@ -1,21 +1,18 @@
-/* Reset global */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Corpo da página */
+
 body {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    background-color: #f4f4f9;
+    font-family: 'Arial Black', Arial, sans-serif;
+    background-color: #e0e0e0;
     color: #333;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
 }
 
-/* Container principal de exploração */
+
 #explore {
     width: 90%;
     max-width: 1200px;
@@ -29,7 +26,7 @@ body {
     border-bottom: 5px solid #004d26;
 }
 
-/* Título principal */
+
 #explore h2 {
     font-size: 2.8rem;
     font-weight: 600;
@@ -39,7 +36,7 @@ body {
     letter-spacing: 1px;
 }
 
-/* Descrição */
+
 #explore p {
     font-size: 1.2rem;
     color: #666;
@@ -48,7 +45,7 @@ body {
     line-height: 1.6;
 }
 
-/* Galeria de produtos */
+
 .product-gallery {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -56,7 +53,7 @@ body {
     justify-items: center;
 }
 
-/* Cartão do produto */
+
 .product-card {
     background-color: #fff;
     padding: 20px;
@@ -69,7 +66,7 @@ body {
     overflow: hidden;
 }
 
-/* Imagem do produto */
+
 .product-image {
     width: 100%;
     height: 250px;
@@ -78,7 +75,7 @@ body {
     margin-bottom: 15px;
 }
 
-/* Botão de compra */
+
 .buy-btn {
     padding: 14px 30px;
     background-color: #008037;
@@ -102,7 +99,7 @@ body {
     background-color: #003a1f;
 }
 
-/* Botão de voltar à página inicial */
+
 .back-home-btn {
     display: inline-block;
     margin-top: 30px;
@@ -129,8 +126,22 @@ body {
     font-size: 1.5rem;
 }
 
-/* Efeitos nos cartões de produto */
+
 .product-card:hover {
     transform: translateY(-5px);
     box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.footer-section {
+    width: 1200px;
+    background-color: #008037;
+    color: #fff;
+    text-align: center;
+    padding: 15px;
+    margin-top: 20px;
+  border-radius: 8px;
+  border-top: 4px solid #004d26; 
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-left: 18.5%;
 }
