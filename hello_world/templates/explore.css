@@ -1,87 +1,96 @@
-
+/* Reset global */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Corpo da página */
 body {
-    font-family: 'Arial Black', Arial, sans-serif;
-    background-color: #e0e0e0;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f4f4f9;
     color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
 }
 
-
+/* Container principal de exploração */
 #explore {
     width: 90%;
     max-width: 1200px;
-    margin: 20px auto;
+    margin: 40px auto;
     text-align: center;
-    padding: 30px;
+    padding: 40px;
     background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
-    border-top: 4px solid #008037;
-    border-bottom: 4px solid #004d26;
+    border-radius: 12px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+    border-top: 5px solid #008037;
+    border-bottom: 5px solid #004d26;
 }
 
+/* Título principal */
 #explore h2 {
-    color: #007BFF; 
-    font-size: 2.5rem;
-    margin-bottom: 15px;
+    font-size: 2.8rem;
+    font-weight: 600;
+    color: #007BFF;
+    margin-bottom: 20px;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
+/* Descrição */
 #explore p {
-    font-size: 1.1rem;
-    color: #555;
+    font-size: 1.2rem;
+    color: #666;
     font-style: italic;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
+    line-height: 1.6;
 }
 
-
+/* Galeria de produtos */
 .product-gallery {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); 
-    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
     justify-items: center;
 }
 
-
+/* Cartão do produto */
 .product-card {
     background-color: #fff;
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
     text-align: center;
     width: 100%;
-    max-width: 400px;
-    transition: transform 0.2s ease;
+    max-width: 350px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
 }
 
-
+/* Imagem do produto */
 .product-image {
     width: 100%;
-    max-width: 350px;
-    height: auto;
-    border-radius: 8px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 12px;
     margin-bottom: 15px;
 }
 
-
+/* Botão de compra */
 .buy-btn {
-    padding: 12px 25px;
+    padding: 14px 30px;
     background-color: #008037;
     color: #fff;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
-    font-size: 1.1rem;
-    font-weight: bold;
+    font-size: 1.2rem;
+    font-weight: 600;
     letter-spacing: 1px;
     text-transform: uppercase;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .buy-btn:hover {
@@ -89,22 +98,26 @@ body {
     transform: scale(1.05);
 }
 
+.buy-btn:active {
+    background-color: #003a1f;
+}
+
+/* Botão de voltar à página inicial */
 .back-home-btn {
     display: inline-block;
-    margin-top: 20px;
-    margin-bottom: 10px;
-    padding: 10px 20px;
+    margin-top: 30px;
+    padding: 12px 25px;
     background-color: #008037;
     color: #fff;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
+    font-weight: 600;
     text-decoration: none;
-    font-weight: bold;
-    border-radius: 5px;
+    border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    gap: 12px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .back-home-btn:hover {
@@ -113,7 +126,11 @@ body {
 }
 
 .back-home-btn i {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
 }
 
-
+/* Efeitos nos cartões de produto */
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.1);
+}
