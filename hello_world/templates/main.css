@@ -58,7 +58,7 @@ body {
 
 .custom-section, .info-section, .form-section {
   width: 90%;
-  max-width: 700px;
+  max-width: 1200px;
   margin: 20px auto;
   text-align: center;
   padding: 30px;
@@ -170,7 +170,7 @@ button:hover {
 
 
 .footer-section {
-  width: 100%;
+  width: 1200px;
   background-color: #008037; 
   color: #fff;
   text-align: center;
@@ -410,3 +410,4 @@ input[type="text"] {
   background-color: #f7f7f7;
   transition: border-color 0.3s ease;
 }
+
