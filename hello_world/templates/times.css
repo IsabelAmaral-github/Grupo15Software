@@ -30,7 +30,8 @@ body {
 }
 
 .back-btn {
-    display: inline-block;
+    display: block; 
+    width: 100%;   
     margin-top: 20px;
     margin-bottom: 10px;
     padding: 10px 20px;
@@ -52,6 +53,9 @@ body {
     transform: scale(1.05);
 }
 
+.back-home-btn i {
+    font-size: 1.3rem;
+}
 
 h1 {
     color: #007BFF; 
@@ -82,6 +86,7 @@ p {
     padding: 15px;
     text-align: center;
     transition: transform 0.3s ease;
+    height: 300px;
 }
 
 .team-card:hover {
@@ -91,24 +96,25 @@ p {
 /* Imagens de times */
 .team-card img {
     width: 100%;
-    max-width: 150px;
-    height: auto;
+    height: 150px;  /* Defina a altura máxima para as imagens */
+    object-fit: cover; /* Isso vai fazer a imagem preencher o espaço sem distorcer */
     margin-bottom: 15px;
     border-radius: 5px;
 }
 
 /* Botões de times */
 .team-btn {
-    background-color: #008037;
+   background-color: #008037;
     color: #fff;
     padding: 10px 15px;
-    border: none;
+    border: none;  /* Remover qualquer borda */
     border-radius: 5px;
     font-size: 1rem;
     font-weight: bold;
     text-transform: uppercase;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
+    text-decoration: none;
 }
 
 .team-btn:hover {
