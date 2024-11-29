@@ -19,11 +19,18 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from django.urls import path
+from hello_world import views
 
-from hello_world.core import views as core_views
+
+from hello_world import views as core_views
 
 urlpatterns = [
     path("", core_views.index),
+    path('cartitemnew', views.cart_item_form_view, name='cartitemnew'),
+    path('cart/item/delete/<int:item_id>/', views.cart_item_delete, name='cart_item_delete'),
+    path('checkout', views.checkout_view, name='checkout'),
+    path('cart', views.cart_view, name="cart"),
     path("admin/", admin.site.urls),
     path("__reload__/", include("django_browser_reload.urls")),
 ]
