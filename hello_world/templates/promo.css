@@ -1,0 +1,144 @@
+/* Resetando margens e padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo geral do body */
+body {
+    font-family: 'Arial Black', Arial, sans-serif;
+    background-color: #e0e0e0;
+    color: #333;
+}
+
+/* Estilo do contêiner principal */
+.tela {
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+    text-align: center;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
+    border-top: 4px solid #008037;
+    border-bottom: 4px solid #004d26;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+}
+
+/* Estilo para o botão de voltar à página inicial */
+.back-home-btn {
+    position: absolute; /* Fixado no canto esquerdo */
+    top: 20px;
+    left: 20px;
+    background-color: #008037;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.back-home-btn:hover {
+    background-color: #004d26;
+}
+
+h1.promotions-title {
+    color: #007BFF; 
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;  /* Centraliza o título */
+}
+
+/* Estilo para a galeria de produtos */
+.product-gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 20px;
+}
+
+.product-card {
+    background-color: #fff;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.product-card img {
+    width: 100%;
+    max-width: 180px;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.product-name {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.product-price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #008037;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Preço antigo com linha atravessada */
+.old-price {
+    text-decoration: line-through;
+    color: #999; /* Cor cinza para o preço antigo */
+    font-size: 1.1rem;
+}
+
+/* Novo preço em vermelho */
+.new-price {
+    color: red;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Estilo do botão Comprar */
+.buy-btn {
+    padding: 12px 25px;
+    background-color: #008037;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.buy-btn:hover {
+    background-color: #004d26;
+    transform: scale(1.05);
+}
