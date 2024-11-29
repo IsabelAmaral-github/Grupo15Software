@@ -1,0 +1,183 @@
+/* Estilo global para remover margens e padding de todos os elementos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial Black', Arial, sans-serif;
+    background-color: #e0e0e0;
+    color: #333;
+}
+
+/* Container principal onde os produtos estarão */
+#tela {
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+    text-align: center;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
+    border-top: 4px solid #008037;
+    border-bottom: 4px solid #004d26;
+}
+
+/* Título */
+#tela h2 {
+    color: #007BFF; 
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Descrição */
+#tela p {
+    font-size: 1.1rem;
+    color: #555;
+    font-style: italic;
+    margin-bottom: 30px;
+}
+
+/* Galeria de produtos, ajustando para 2 colunas */
+.product-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 15px; 
+    padding: 0;
+    justify-items: center;
+}
+
+/* Cards de produtos (caixas pequenas à esquerda) */
+.product-card {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    width: 100%;  /* Garante que os cards ocupem 100% da coluna */
+    max-width: 350px;  /* Limita a largura máxima */
+    margin: 0 auto;  /* Garante que os cards fiquem centralizados */
+}
+
+/* Imagem dos produtos */
+.product-image {
+    width: 100%;  /* Imagem ocupa toda a largura do card */
+    max-width: 300px;  /* Limita a largura da imagem */
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.btn {
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: none;
+    width: 100%;  /* Botões ocupam toda a largura disponível do card */
+}
+.like-btn {
+    background-color: #ff5c5c; /* Cor para o botão de like */
+    color: #fff;
+    margin-bottom: 10px;  /* Espaço entre os botões */
+    margin-right: 10px; /* Espaço entre os botões */
+}
+
+/* Estilo para o botão de 'Download' */
+.download-btn {
+    background-color: #008037; /* Cor para o botão de download */
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+/* Hover do botão de like */
+.like-btn:hover {
+    background-color: #e04e4e;
+    transform: scale(1.05);
+}
+
+/* Hover do botão de download */
+.download-btn:hover {
+    background-color: #004d26;
+    transform: scale(1.05);
+}
+
+/* Estilo do número ao lado do botão */
+.btn span {
+    margin-left: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #fff;
+}
+/* Botão de compra */
+.buy-btn {
+    padding: 12px 25px;
+    background-color: #008037;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Hover do botão de compra */
+.buy-btn:hover {
+    background-color: #004d26;
+    transform: scale(1.05);
+}
+
+/* Card grande à direita */
+.product-large-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    width: 100%;  /* O card grande ocupa toda a coluna direita */
+    margin: 0 auto;
+}
+
+/* Botão de voltar para a página inicial */
+.back-home-btn {
+    display: inline-block;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    padding: 10px 20px;
+    background-color: #008037;
+    color: #fff;
+    font-size: 1.1rem;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Hover do botão de voltar */
+.back-home-btn:hover {
+    background-color: #004d26;
+    transform: scale(1.05);
+}
+
+.back-home-btn i {
+    font-size: 1.3rem;
+}
