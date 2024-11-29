@@ -1,39 +1,41 @@
-
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meu Carrinho</title>
-    <link href="style.css" rel="stylesheet">
+    <!-- Atualizando o caminho do arquivo CSS para a pasta 'css' -->
+    <link href="../css/style.css" rel="stylesheet"> <!-- Caminho atualizado para 'css' -->
 </head>
+
 <body>
 
-    <!-- Cabeçalho -->
     <header class="header">
         <div class="logo">
-            <img src="logo.png" alt="Design em Campo" width="50px">
+            <!-- Atualizando o caminho da imagem do logo para a pasta 'img' -->
+            <img src="../img/logo.png" alt="Design em Campo" width="50px"> <!-- Caminho atualizado para 'img' -->
             <h1>Design em Campo</h1>
         </div>
-        <a href="login.html" class="login-btn">Entrar</a> <!-- Usando <a> para link -->
-
+        <!-- Atualizando o caminho do link de login para a página 'html/login.html' -->
+        <a href="../html/login.html" class="login-btn">Entrar</a> <!-- Caminho atualizado para 'html/login.html' -->
     </header>
 
-
-    <!-- Conteúdo Principal -->
     <main>
         <div class="cart-container">
 
-            <!-- Itens do Carrinho -->
             <div class="cart-items">
                 <h2>Meu Carrinho</h2>
+                <!-- A estrutura do carrinho foi mantida com o Django Template Language (DTL) -->
                 {% for item in items %}
                     <div class="cart-item">
+                        <!-- Usando a URL da imagem do item -->
                         <img src="{{ item.image.url }}" alt="{{ item.name }}" class="item-image">
                         <div class="item-details">
                             <h3>{{ item.name }}</h3>
                             <p>{{ item.description }}</p>
                             <p class="item-price">R${{ item.price }}</p>
                         </div>
+                        <!-- Formulário para remover o item do carrinho -->
                         <form action="{% url 'cart_item_delete' item.id %}" method="post" class="remove-item-form">
                             {% csrf_token %}
                             <button type="submit" class="remove-item-btn">X</button>
@@ -44,22 +46,25 @@
                 {% endfor %}
             </div>
 
-            <!-- Resumo do Carrinho -->
             <div class="cart-summary">
                 <h3>Resumo do Carrinho</h3>
+                <!-- Exibindo o número de itens e o preço total -->
                 <p>Itens ({{ items|length }}) .......... R${{ total_price }}</p>
                 <p>Frete .......... R$30.00</p>
+                <!-- Exibindo o total final incluindo o frete -->
                 <p>Total .......... R${{ total_price|add:"30" }}</p>
-                <a href="checkout.html" class="checkout-btn">Finalizar Compra</a>
+                <!-- Link para a página de checkout -->
+                <a href="../html/checkout.html" class="checkout-btn">Finalizar Compra</a> <!-- Caminho atualizado para 'html/checkout.html' -->
             </div>
 
         </div>
     </main>
 
-    <!-- Rodapé -->
     <footer>
-        <img src="bola.png" alt="Bola" width="50px">
+        <!-- Atualizando o caminho da imagem de bola para a pasta 'img' -->
+        <img src="../img/bola.png" alt="Bola" width="50px"> <!-- Caminho atualizado para 'img' -->
     </footer>
 
 </body>
+
 </html>
