@@ -1,39 +1,37 @@
-
 <!doctype html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
-    <link href="logo.png" rel="icon" type="logo/png">
+    <!-- Corrigindo o ícone com o caminho relativo adequado -->
+    <link href="../img/logo.png" rel="icon" type="image/png">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="GitHub Codespaces ♥️ Django">
     <meta name="author" content="GitHub Codespaces">
     <meta name="generator" content="GitHub Codespaces">
     <meta name="theme-color" content="#000000">
-    <link href='main.css' rel="stylesheet" type="text/css">
-    <title>Desing em Campo</title>
-    <script src="shirt.js" defer></script>
-
+    <link href="../css/main.css" rel="stylesheet" type="text/css"> <!-- Caminho relativo para o CSS -->
+    <title>Design em Campo</title>
+    <script src="../js/shirt.js" defer></script> <!-- Caminho relativo para o JavaScript -->
 </head>
 
 <body>
     <div class="App">
 
         <section class="custom-section">
-            <h1>Desing em Campo</h1>
-            <p>Vista seu time, Mostre Seu Estilo</p>
-            <a href="explore.html">Confira Nossos Modelos Já Personalizados</a>
+            <h1>Design em Campo</h1>
+            <p>Vista seu time, mostre seu estilo!</p>
+            <a href="../html/explore.html">Confira nossos modelos já personalizados</a> <!-- Caminho relativo para a página Explore -->
         </section>
-        
+
         <section id="como-funciona" class="info-section">
             <h2>Como Funciona?</h2>
             <p>Personalize a camisa do seu time com um estilo único que reflete a sua paixão e personalidade.</p>
         </section>
-        
+
         <section id="personalizacao" class="form-section">
             <h2>Personalize sua Camisa</h2>
             <form>
-                
                 <label for="nome-time">Nome do Time:</label>
                 <select id="nome-time" name="nome-time" required>
                     <option value="">Selecione um time</option>
@@ -45,18 +43,16 @@
 
                 <div class="shirt-color-picker">
                     <div class="shirt-container1">
-                      <div class="shirt-preview" id="shirt1"></div>
-                      <div class="shirt-preview" id="shirt2"></div>
+                        <div class="shirt-preview" id="shirt1"></div>
+                        <div class="shirt-preview" id="shirt2"></div>
                     </div>
-                    
+
                     <label for="color-picker">Selecione a Cor da Camisa:</label>
                     <input type="color" id="color-picker" name="cor-camisa">
-                  
+
                     <label for="shirt-text">Texto na Camisa:</label>
-                    <input type="text" id="shirt-text" placeholder="Digite algo..." />
-                  
-                  </div>
-                
+                    <input type="text" id="shirt-text" placeholder="Digite algo...">
+                </div>
 
                 <label for="numero">Quantidade:</label>
                 <input type="number" id="numero" name="numero" min="1" max="99">
@@ -68,30 +64,25 @@
         <section class="custom-section">
             <h1>Times Cariocas</h1>
             <p>Procure e veja camisas do seu time favorito</p>
-            <a href="times.html">Escolha o seu time</a>
+            <a href="../html/times.html">Escolha o seu time</a> <!-- Caminho relativo para a página Times -->
         </section>
 
-
         <section class="promo-section">
-            <h2>  PROMOÇÕES </h2>
-            <p>Procure e veja nossas camisas em promoção! Aproveite, ate 50% off !</p>
-            <a href="promo.html">Confira Nossa SALE</a>
-
+            <h2>Promoções</h2>
+            <p>Procure e veja nossas camisas em promoção! Aproveite até 50% off!</p>
+            <a href="../html/promo.html">Confira nossa SALE</a> <!-- Caminho relativo para a página Promoções -->
         </section>
 
         <section class="custom-section">
             <h1>MarketPlace</h1>
             <p>Encontre novas criações</p>
-            <a href="market.html">Visite o MarketPlace</a>
+            <a href="../html/market.html">Visite o MarketPlace</a> <!-- Caminho relativo para a página MarketPlace -->
         </section>
 
-
         <footer class="footer-section">
-            <p>Obrigado por personalizar com a Desing em Campo</p>
+            <p>Obrigado por personalizar com a Design em Campo!</p>
         </footer>
     </div>
-
-
 </body>
 
 </html>
