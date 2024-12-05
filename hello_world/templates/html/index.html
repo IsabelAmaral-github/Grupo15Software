@@ -2,81 +2,61 @@
 <html lang="pt-br">
 
 <head>
-    <!-- Corrigindo o ícone com o caminho relativo adequado -->
-    <link href="../img/logo.png" rel="icon" type="image/png">
+    <link href="static/logo.png" rel="icon" type="image/png">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="GitHub Codespaces ♥️ Django">
-    <meta name="author" content="GitHub Codespaces">
-    <meta name="generator" content="GitHub Codespaces">
+    <meta name="description" content="Design em Campo - Personalize sua camisa">
+    <meta name="author" content="Design em Campo">
     <meta name="theme-color" content="#000000">
-    <link href="../css/main.css" rel="stylesheet" type="text/css"> <!-- Caminho relativo para o CSS -->
+    <link href="../css/main.css" rel="stylesheet" type="text/css">
     <title>Design em Campo</title>
-    <script src="../js/shirt.js" defer></script> <!-- Caminho relativo para o JavaScript -->
+    <script src="../js/shirt.js" defer></script>
 </head>
 
 <body>
     <div class="App">
+        <header class="header-section">
+            <div class="header-left">
+                <img src="../img/logo.png" alt="Logo">
+            </div>
+            <div class="header-center">
+                <h1>Design em Campo</h1>
+            </div>
+            <div class="header-right">
+                <a href="../html/login.html" class="header-button">Login</a>
+                <a href="../html/cart.html" class="header-button">Carrinho</a>
+            </div>
+        </header>
 
-        <section class="custom-section">
-            <h1>Design em Campo</h1>
-            <p>Vista seu time, mostre seu estilo!</p>
-            <a href="../html/explore.html">Confira nossos modelos já personalizados</a> <!-- Caminho relativo para a página Explore -->
-        </section>
+        <div class="image-description">
+            <img src="../img/capafut.jpg" alt="Imagem capa futuro" class="image-capa">
+            <p>Bem-vindo ao Design em Campo, o lugar perfeito para os fãs que vivem e respiram a paixão pelo seu time. Oferecemos mercadorias exclusivas e personalizáveis, para que você possa mostrar seu amor pela sua equipe de uma forma única e autêntica. Seja parte da nossa comunidade e leve para casa produtos feitos especialmente para você!</p>
+        </div>
 
-        <section id="como-funciona" class="info-section">
-            <h2>Como Funciona?</h2>
-            <p>Personalize a camisa do seu time com um estilo único que reflete a sua paixão e personalidade.</p>
-        </section>
+        <section class="section-container">
+            <div class="section-box">
+                <h2>Times Cariocas</h2>
+                <p>Encontre camisas do seu time carioca favorito!</p>
+                <a href="../html/times.html">Escolha o seu time</a>
+            </div>
 
-        <section id="personalizacao" class="form-section">
-            <h2>Personalize sua Camisa</h2>
-            <form>
-                <label for="nome-time">Nome do Time:</label>
-                <select id="nome-time" name="nome-time" required>
-                    <option value="">Selecione um time</option>
-                    <option value="Fluminense">Fluminense</option>
-                    <option value="Flamengo">Flamengo</option>
-                    <option value="Vasco">Vasco</option>
-                    <option value="Botafogo">Botafogo</option>
-                </select>
+            <div class="section-box">
+                <h2>Promoções</h2>
+                <p>Aproveite nossas promoções! Descontos imperdíveis!</p>
+                <a href="../html/promo.html">Confira a SALE</a>
+            </div>
 
-                <div class="shirt-color-picker">
-                    <div class="shirt-container1">
-                        <div class="shirt-preview" id="shirt1"></div>
-                        <div class="shirt-preview" id="shirt2"></div>
-                    </div>
+            <div class="section-box">
+                <h2>MarketPlace</h2>
+                <p>Explore novas criações e inspire-se!</p>
+                <a href="../html/market.html">Visite o MarketPlace</a>
+            </div>
 
-                    <label for="color-picker">Selecione a Cor da Camisa:</label>
-                    <input type="color" id="color-picker" name="cor-camisa">
-
-                    <label for="shirt-text">Texto na Camisa:</label>
-                    <input type="text" id="shirt-text" placeholder="Digite algo...">
-                </div>
-
-                <label for="numero">Quantidade:</label>
-                <input type="number" id="numero" name="numero" min="1" max="99">
-
-                <button type="submit">Personalizar</button>
-            </form>
-        </section>
-
-        <section class="custom-section">
-            <h1>Times Cariocas</h1>
-            <p>Procure e veja camisas do seu time favorito</p>
-            <a href="../html/times.html">Escolha o seu time</a> <!-- Caminho relativo para a página Times -->
-        </section>
-
-        <section class="promo-section">
-            <h2>Promoções</h2>
-            <p>Procure e veja nossas camisas em promoção! Aproveite até 50% off!</p>
-            <a href="../html/promo.html">Confira nossa SALE</a> <!-- Caminho relativo para a página Promoções -->
-        </section>
-
-        <section class="custom-section">
-            <h1>MarketPlace</h1>
-            <p>Encontre novas criações</p>
-            <a href="../html/market.html">Visite o MarketPlace</a> <!-- Caminho relativo para a página MarketPlace -->
+            <div class="section-box">
+                <h2>Personalização</h2>
+                <p>Personalize sua camisa com seu estilo único.</p>
+                <a href="../html/personalizar.html">Personalizar agora</a>
+            </div>
         </section>
 
         <footer class="footer-section">
