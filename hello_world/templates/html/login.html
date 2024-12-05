@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <!-- Atualizando o caminho do arquivo CSS para a pasta css -->
+    <link href="../css/styles.css" rel="stylesheet" type="text/css"> <!-- Caminho relativo para o CSS -->
+</head>
+
+<body>
+    <div class="container">
+        <h1>Login</h1>
+        <form action="/login" method="POST">
+            <div class="input-group">
+                <label for="username">Nome de Usuário</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+
+            <div class="input-group">
+                <label for="password">Senha</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+
+            <button type="submit">Entrar</button>
+        </form>
+
+        <!-- Atualizando o link de cadastro para a pasta html -->
+        <p>Não tem uma conta? <a href="../html/cadastro.html">Cadastre-se aqui</a></p> <!-- Caminho relativo para a página de cadastro -->
+    </div>
+</body>
+
+</html>

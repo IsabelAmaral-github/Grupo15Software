@@ -58,7 +58,7 @@ body {
 
 .custom-section, .info-section, .form-section {
   width: 90%;
-  max-width: 700px;
+  max-width: 1200px;
   margin: 20px auto;
   text-align: center;
   padding: 30px;
@@ -170,7 +170,7 @@ button:hover {
 
 
 .footer-section {
-  width: 100%;
+  width: 1200px;
   background-color: #008037; 
   color: #fff;
   text-align: center;
@@ -182,87 +182,87 @@ button:hover {
   font-size: 1.1rem;
 }
 
-#login, #cadastro {
-  width: 90%;
-  max-width: 600px;
-  margin: 20px auto;
-  padding: 30px;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
-  border-top: 4px solid #0066cc; 
-  border-bottom: 4px solid #004d99;
+#login e cadastro
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    margin: 50px auto;
+    max-width: 1200px;
+    gap: 50px;
 }
 
-#login h2, #cadastro h2 {
-  font-size: 2rem;
-  color: #0066cc; 
-  text-align: center;
-  text-transform: uppercase;
-  margin-bottom: 20px;
+.login-section, .signup-section {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
+    border-top: 4px solid #008037;
+    border-bottom: 4px solid #004d26;
+    width: 40%;
 }
 
-#login form, #cadastro form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+h2 {
+    color: #0066cc;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
 }
 
-#login label, #cadastro label {
-  font-size: 1rem;
-  font-weight: bold;
-  color: #333;
-  text-align: left;
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
-#login input, #cadastro input {
-  padding: 12px;
-  border: 2px solid #004d99; 
-  border-radius: 5px;
-  font-size: 1.1rem;
-  width: 100%;
-  background-color: #f7f7f7;
-  color: #333;
-  transition: border-color 0.3s ease;
+label {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
 }
 
-#login input:focus, #cadastro input:focus {
-  border-color: #0066cc;
+input {
+    padding: 12px;
+    font-size: 1.1rem;
+    border: 2px solid #004d26;
+    border-radius: 5px;
+    width: 100%;
+    background-color: #f7f7f7;
+    color: #333;
+    transition: border-color 0.3s ease;
 }
 
-#login button, #cadastro button {
-  padding: 12px 25px;
-  background-color: #0066cc; 
-  color: white;
-  font-size: 1.1rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+input:focus {
+    border-color: #0066cc; /* Cor mais viva quando o campo recebe foco */
 }
 
-#login button:hover, #cadastro button:hover {
-  background-color: #004d99;
-  transform: scale(1.05);
+button {
+    padding: 12px;
+    background-color: #008037;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-#login p, #cadastro p {
-  text-align: center;
-  font-size: 0.9rem;
-  color: #555;
+button:hover {
+    background-color: #004d26;
+    transform: scale(1.05);
 }
 
-#login a, #cadastro a {
-  color: #0066cc;
-  font-weight: bold;
-  text-decoration: none;
-  transition: color 0.3s ease;
+.signup-section button {
+    background-color: #0066cc;
 }
 
-#login a:hover, #cadastro a:hover {
-  color: #004d99;
+.signup-section button:hover {
+    background-color: #004d99;
 }
 
 
@@ -349,6 +349,51 @@ button:hover {
   /*position: relative;  
   z-index: 2; */
 }
+.promo-section, .info-section, .form-section {
+  width: 90%;
+  max-width: 1200px;
+  margin: 20px auto;
+  text-align: center;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
+  border-top: 4px solid #008037; 
+  border-bottom: 4px solid #004d26;
+}
+
+.promo-section h1, .info-section h2, .form-section h2 {
+  color: #0066cc; 
+  font-size: 2rem;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.promo-section p {
+  font-size: 1.1rem;
+  color: #000000;
+  font-style: normal;
+}
+
+.promo-section a {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 12px 25px;
+  background-color: #0066cc; 
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.promo-section a:hover {
+  background-color: #004d99; 
+  transform: scale(1.05);
+}
 
 input[type="color"] {
   margin-top: 10px;
@@ -411,3 +456,4 @@ input[type="text"] {
   background-color: #f7f7f7;
   transition: border-color 0.3s ease;
 }
+

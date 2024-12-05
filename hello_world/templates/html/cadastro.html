@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link href="../css/styles.css" rel="stylesheet" type="text/css"> <!-- Corrigir caminho se necessário -->
+</head>
+
+<body>
+    <div class="container">
+        <h1>Cadastro</h1>
+        <form action="/cadastro" method="POST" onsubmit="return validatePassword()">
+            <!-- CSRF Token para Django -->
+            {% csrf_token %}
+
+            <div class="input-group">
+                <label for="username">Nome de Usuário</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+
+            <div class="input-group">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="input-group">
+                <label for="password">Senha</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+
+            <div class="input-group">
+                <label for="confirm_password">Confirme a Senha</label>
+                <input type="password" id="confirm_password" name="confirm_password" required>
+            </div>
+
+            <button type="submit">Cadastrar</button>
+        </form>
+
+        <p>Já tem uma conta? <a href="../html/login.html">Faça login aqui</a></p>
+    </div>
+
+    <script>
+        // Função para validar se as senhas coincidem
+        function validatePassword() {
+            var password = document.getElementById('password').value;
+            var confirmPassword = document.getElementById('confirm_password').value;
+
+            if (password !== confirmPassword) {
+                alert("As senhas não coincidem!");
+                return false; // Impede o envio do formulário
+            }
+            return true; // Permite o envio do formulário
+        }
+    </script>
+</body>
+
+</html>
