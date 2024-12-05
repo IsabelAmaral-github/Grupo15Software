@@ -86,11 +86,18 @@ body {
     border: none;
     width: 100%;  /* Botões ocupam toda a largura disponível do card */
 }
+.buttons-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px; /* Espaço entre os botões */
+    margin-bottom: 15px; /* Espaço abaixo do container de botões */
+}
 .like-btn {
     background-color: #ff5c5c; /* Cor para o botão de like */
     color: #fff;
-    margin-bottom: 10px;  /* Espaço entre os botões */
-    margin-right: 10px; /* Espaço entre os botões */
+    padding: 8px 15px;
+    font-size: 0.9rem; 
+    width: 45%;
 }
 
 /* Estilo para o botão de 'Download' */
@@ -98,6 +105,9 @@ body {
     background-color: #008037; /* Cor para o botão de download */
     color: #fff;
     margin-bottom: 10px;
+    padding: 8px 15px;
+    font-size: 0.9rem; 
+    width: 45%;
 }
 
 /* Hover do botão de like */
@@ -132,6 +142,7 @@ body {
     letter-spacing: 1px;
     text-transform: uppercase;
     transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 100%;
 }
 
 /* Hover do botão de compra */
