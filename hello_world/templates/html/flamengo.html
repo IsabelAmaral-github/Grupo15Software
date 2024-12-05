@@ -4,24 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Design em Campo</title>
-    <!-- Caminho atualizado para o CSS -->
     <link href="../css/indtime.css" rel="stylesheet" type="text/css"> <!-- Link para o CSS -->
 </head>
 <body>
-    <div class="tela">
-        <div class="header">
-            <!-- Caminho atualizado para a página de Times -->
-            <a href="../html/times.html" class="back-btn">
-                <img src="../img/bola.png" width="50px" alt="Bola"> Times Cariocas <img src="../img/bola.png" width="50px" alt="Bola">
-            </a>
-        </div>
+    <div class="App">
+        <!-- Header -->
+        <header class="header-section">
+            <div class="header-left">
+                <!-- Logo -->
+                <img src="../img/logo.png" alt="Logo" class="logo">
+                <!-- Botões de navegação -->
+                <a href="../html/index.html" class="home-btn">Página Inicial</a>
+                <a href="../html/times.html" class="back-btn">Voltar para Escolha de Time</a>
+            </div>
+            <div class="header-center">
+                <h1>Design em Campo</h1>
+            </div>
+            <div class="header-right">
+                <a href="../html/login.html" class="header-button">Login</a>
+                <a href="../html/cart.html" class="header-button">Carrinho</a>
+            </div>
+        </header>
 
-        <h1>Flamengo</h1>
+        <h1 class="team-name">Flamengo</h1>
 
         <div class="product-gallery">
             <!-- Camisa 1 -->
             <div class="product-card">
-                <!-- Caminho atualizado para a imagem -->
                 <img src="../img/flacamisa.webp" alt="Camisa Flamengo 1">
                 <p class="product-name">Camisa Flamengo Home 23/24 - Preto e Branco</p>
                 <p class="product-price">R$ 159,90</p>
@@ -29,7 +38,6 @@
             </div>
             <!-- Camisa 2 -->
             <div class="product-card">
-                <!-- Caminho atualizado para a imagem -->
                 <img src="../img/flacamisa.webp" alt="Camisa Flamengo 2">
                 <p class="product-name">Camisa Flamengo Home 23/24 - Preto e Branco</p>
                 <p class="product-price">R$ 159,90</p>
@@ -37,7 +45,6 @@
             </div>
             <!-- Camisa 3 -->
             <div class="product-card">
-                <!-- Caminho atualizado para a imagem -->
                 <img src="../img/flacamisa.webp" alt="Camisa Flamengo 3">
                 <p class="product-name">Camisa Flamengo Third 23/24 - Branco</p>
                 <p class="product-price">R$ 159,90</p>
@@ -45,7 +52,6 @@
             </div>
             <!-- Camisa 4 -->
             <div class="product-card">
-                <!-- Caminho atualizado para a imagem -->
                 <img src="../img/flacamisa.webp" alt="Camisa Flamengo 4">
                 <p class="product-name">Camisa Flamengo Away 23/24 - Preto</p>
                 <p class="product-price">R$ 159,90</p>
@@ -53,7 +59,6 @@
             </div>
             <!-- Camisa 5 -->
             <div class="product-card">
-                <!-- Caminho atualizado para a imagem -->
                 <img src="../img/flacamisa.webp" alt="Camisa Flamengo 5">
                 <p class="product-name">Camisa Flamengo Home 23/24 - Preto e Branco</p>
                 <p class="product-price">R$ 159,90</p>
@@ -61,13 +66,17 @@
             </div>
             <!-- Camisa 6 -->
             <div class="product-card">
-                <!-- Caminho atualizado para a imagem -->
                 <img src="../img/flacamisa.webp" alt="Camisa Flamengo 6">
                 <p class="product-name">Camisa Flamengo Third 23/24 - Branco</p>
                 <p class="product-price">R$ 159,90</p>
                 <button class="buy-btn">Comprar</button>
             </div>
         </div>
+
+        <!-- Footer -->
+        <footer class="footer-section">
+            <p>Obrigado por personalizar com a Design em Campo!</p>
+        </footer>
     </div>
 </body>
 </html>
