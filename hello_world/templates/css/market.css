@@ -5,24 +5,63 @@
     box-sizing: border-box;
 }
 
+
 body {
     font-family: 'Arial Black', Arial, sans-serif;
     background-color: #e0e0e0;
     color: #333;
 }
-
+.App {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  
+  .App-header {
+    background-color: #008037;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+    border-radius: 8px;
+    border-bottom: 4px solid #004d26; 
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .App-logo {
+    width: 120px;
+    height: auto;
+    margin-bottom: 10px;
+    transition: transform 0.2s ease;
+  }
+  
+  .App-logo:hover {
+    transform: scale(1.1);
+  }
+  
+  .App-header p {
+    font-size: 1.4rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+  
+  .App-header .small {
+    font-size: 1rem;
+    color: #d4f3d4;
+  }
+  
+  .heart {
+    color: #0066cc; 
+  }
+  
 /* Container principal onde os produtos estarão */
 #tela {
     width: 90%;
     max-width: 1200px;
     margin: 20px auto;
     text-align: center;
-    padding: 30px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
-    border-top: 4px solid #008037;
-    border-bottom: 4px solid #004d26;
 }
 
 /* Título */
@@ -192,3 +231,41 @@ body {
 .back-home-btn i {
     font-size: 1.3rem;
 }
+.header-section {
+    display: flex;
+    justify-content: center;  /* Centraliza o texto no meio da barra */
+    align-items: center;
+    background-color: #008037;
+    padding: 25px 20px;
+    width: 100%;
+    color: white;
+  }
+
+.header-left img {
+    height: 50px;
+    text-align: left;
+  }
+  
+  .header-center {
+    flex-grow: 1;
+    text-align: center;  /* Centraliza o texto dentro da div */
+  }
+  
+  .header-center h1 {
+    font-size: 2rem;
+    color: white;
+  }
+  
+  .header-right a {
+    color: white;
+    background-color: #0066cc;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  
+  .header-right a:hover {
+    background-color: #004d99;
+  }
