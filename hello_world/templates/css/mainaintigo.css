@@ -51,6 +51,45 @@
     font-size: 1rem;
     color: #d4f3d4;
   }
+
+  .header-section {
+    display: flex;
+    justify-content: center;  /* Centraliza o texto no meio da barra */
+    align-items: center;
+    background-color: #008037;
+    padding: 25px 20px;
+    width: 100%;
+    color: white;
+  }
+
+.header-left img {
+    height: 50px;
+    text-align: left;
+  }
+  
+  .header-center {
+    flex-grow: 1;
+    text-align: center;  /* Centraliza o texto dentro da div */
+  }
+  
+  .header-center h1 {
+    font-size: 2rem;
+    color: white;
+  }
+  
+  .header-right a {
+    color: white;
+    background-color: #0066cc;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  
+  .header-right a:hover {
+    background-color: #004d99;
+  }
   
   .heart {
     color: #0066cc; 
@@ -58,16 +97,8 @@
   
   .custom-section, .info-section, .form-section {
     width: 90%;
-    max-width: 1200px;
-    margin: 20px auto;
-    text-align: center;
-    padding: 30px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
-    border-top: 4px solid #008037; 
-    border-bottom: 4px solid #004d26;
   }
+  
   
   .custom-section h1, .info-section h2, .form-section h2 {
     color: #0066cc; 
@@ -82,6 +113,7 @@
     color: #555;
     font-style: italic;
   }
+
   
   .custom-section a {
     display: inline-block;
@@ -349,8 +381,24 @@
     /*position: relative;  
     z-index: 2; */
   }
-  .promo-section, .info-section, .form-section {
+
+  .info-section{
     width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+    text-align: center;
+    padding: 30px;
+    border-radius: 8px;
+
+  }
+
+  .info-section p {
+    font-size: 1.1rem;
+    color: #555;
+    font-style: italic;
+  }
+  .promo-section, .form-section {
+    width: 50%;
     max-width: 1200px;
     margin: 20px auto;
     text-align: center;
@@ -358,8 +406,8 @@
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
-    border-top: 4px solid #008037; 
-    border-bottom: 4px solid #004d26;
+    border-top: 4px solid #008037;
+      border-bottom: 4px solid #004d26;
   }
   
   .promo-section h1, .info-section h2, .form-section h2 {
