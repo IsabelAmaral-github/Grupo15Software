@@ -1,4 +1,3 @@
-
 * {
     margin: 0;
     padding: 0;
@@ -11,54 +10,78 @@ body {
     color: #333;
 }
 
-.tela {
-    width: 90%;
-    max-width: 1200px;
-    margin: 20px auto;
-    text-align: center;
-    padding: 30px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
-    border-top: 4px solid #008037;
-    border-bottom: 4px solid #004d26;
-}
-
-.header {
+.App {
     display: flex;
-    margin-bottom: 20px;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
 }
 
-.back-btn {
-    display: block; 
-    width: 100%;   
-    margin-top: 20px;
-    margin-bottom: 10px;
-    padding: 10px 20px;
+.header-section {
+    display: flex;
+    justify-content: center;  /* Centraliza o texto no meio da barra */
+    align-items: center;
     background-color: #008037;
-    color: #fff;
-    font-size: 1.1rem;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 5px;
+    padding: 25px 20px;
+    width: 100%;
+    color: white;
+}
+
+.header-left {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 10px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.back-btn:hover {
-    background-color: #004d26;
-    transform: scale(1.05);
+.header-left img {
+    height: 50px;
 }
 
-.back-home-btn i {
-    font-size: 1.3rem;
+.header-left .back-btn {
+    margin-left: 15px;
+    background-color: #0066cc;
+    color: white;
+    padding: 8px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.header-left .back-btn:hover {
+    background-color: #004d99;
+}
+
+.header-center {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.header-center h1 {
+    font-size: 2rem;
+    color: white;
+}
+
+.header-right a {
+    color: white;
+    background-color: #0066cc;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.header-right a:hover {
+    background-color: #004d99;
+}
+
+.main-content {
+    width: 100%;
+    text-align: center;
+    margin-top: 40px;
 }
 
 h1 {
-    color: #007BFF; 
+    color: #007BFF;
     font-size: 2.5rem;
     margin-bottom: 15px;
     text-transform: uppercase;
@@ -71,43 +94,40 @@ p {
     margin-bottom: 30px;
 }
 
-/* Galeria de times */
 .teams-gallery {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
 }
 
-/* Cards de times */
 .team-card {
     background-color: #fff;
     border: 2px solid #008037;
     border-radius: 10px;
-    padding: 15px;
+    padding: 15px; /* Ajustei o padding para maior compatibilidade */
     text-align: center;
     transition: transform 0.3s ease;
-    height: 300px;
+    height: auto; /* Ajustado para se adaptar ao conteúdo */
 }
 
 .team-card:hover {
     transform: scale(1.05);
 }
 
-/* Imagens de times */
 .team-card img {
     width: 100%;
-    height: 150px;  /* Defina a altura máxima para as imagens */
-    object-fit: cover; /* Isso vai fazer a imagem preencher o espaço sem distorcer */
+    height: auto;  /* A imagem vai crescer conforme o tamanho do container */
+    max-height: 200px; /* Limita a altura da imagem */
+    object-fit: contain; /* Mantém a proporção da imagem */
     margin-bottom: 15px;
     border-radius: 5px;
 }
 
-/* Botões de times */
 .team-btn {
-   background-color: #008037;
+    background-color: #008037;
     color: #fff;
     padding: 10px 15px;
-    border: none;  /* Remover qualquer borda */
+    border: none;
     border-radius: 5px;
     font-size: 1rem;
     font-weight: bold;
@@ -120,4 +140,19 @@ p {
 .team-btn:hover {
     background-color: #004d26;
     transform: scale(1.05);
+}
+
+footer {
+    width: 100%;
+    background-color: #008037;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 30px;
+}
+
+footer p {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: white; /* Garantindo que o texto do footer fique branco */
 }

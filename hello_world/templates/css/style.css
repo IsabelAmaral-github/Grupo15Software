@@ -16,11 +16,21 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #f0f0f0;
+    background-color: #008037;
     padding: 20px 40px;
-    color: #333;
+    color: white;
     border-bottom: 4px solid #d0d0d0;
     border-radius: 8px;
+}
+
+.header .back-btn {
+    margin-left: 15px;
+    background-color: #0066cc;
+    color: white;
+    padding: 8px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
 }
 
 .header .logo {
@@ -180,7 +190,7 @@ footer {
     text-align: center;
     padding: 15px;
     margin-top: 30px;
-    background-color: #f0f0f0;
+    background-color: #008037;
     color: #333;
     border-radius: 8px;
     border-top: 4px solid #d0d0d0;
