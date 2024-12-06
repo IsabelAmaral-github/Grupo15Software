@@ -1,39 +1,65 @@
+<!doctype html>
+<html lang="pt-br">
 
-<link href="../css/mainaintigo.css" rel="stylesheet" type="text/css">
-
-<section id="como-funciona" class="info-section">
-    <h2>Como Funciona?</h2>
-    <p>Personalize a camisa do seu time com um estilo único que reflete a sua paixão e personalidade.</p>
-</section>
-
-<section id="personalizacao" class="form-section">
-    <h2>Personalize sua Camisa</h2>
-    <form>
-        <label for="nome-time">Nome do Time:</label>
-        <select id="nome-time" name="nome-time" required>
-            <option value="">Selecione um time</option>
-            <option value="Fluminense">Fluminense</option>
-            <option value="Flamengo">Flamengo</option>
-            <option value="Vasco">Vasco</option>
-            <option value="Botafogo">Botafogo</option>
-        </select>
-
-        <div class="shirt-color-picker">
-            <div class="shirt-container1">
-                <div class="shirt-preview" id="shirt1"></div>
-                <div class="shirt-preview" id="shirt2"></div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <!-- Atualizando o caminho do arquivo CSS para a pasta css -->
+    <link href="../css/mainaintigo.css" rel="stylesheet" type="text/css"> <!-- Caminho relativo para o CSS -->
+</head>
+<body>
+    <div class="App">
+        <!-- Cabeçalho -->
+        <header class="header-section">
+            <div class="header-left">
+                <img src="../img/logo.png" alt="Logo">
             </div>
+            <div class="header-center">
+                <h1>Design em Campo</h1>
+            </div>
+            <div class="header-right">
+                <a href="../html/index.html" class="header-button">Voltar</a>
+            </div>
+        </header>
+        
+        <!-- Seções da página -->
+        <section id="como-funciona" class="info-section">
+            <h2>Como Funciona?</h2>
+            <p>Personalize a camisa do seu time com um estilo único que reflete a sua paixão e personalidade.</p>
+        </section>
 
-            <label for="color-picker">Selecione a Cor da Camisa:</label>
-            <input type="color" id="color-picker" name="cor-camisa">
+        <section id="personalizacao" class="form-section">
+            <h2>Personalize sua Camisa</h2>
+            <form>
+                <label for="nome-time">Nome do Time:</label>
+                <select id="nome-time" name="nome-time" required>
+                    <option value="">Selecione um time</option>
+                    <option value="Fluminense">Fluminense</option>
+                    <option value="Flamengo">Flamengo</option>
+                    <option value="Vasco">Vasco</option>
+                    <option value="Botafogo">Botafogo</option>
+                </select>
 
-            <label for="shirt-text">Texto na Camisa:</label>
-            <input type="text" id="shirt-text" placeholder="Digite algo...">
-        </div>
+                <div class="shirt-color-picker">
+                    <div class="shirt-container1">
+                        <div class="shirt-preview" id="shirt1"></div>
+                        <div class="shirt-preview" id="shirt2"></div>
+                    </div>
 
-        <label for="numero">Quantidade:</label>
-        <input type="number" id="numero" name="numero" min="1" max="99">
+                    <label for="color-picker">Selecione a Cor da Camisa:</label>
+                    <input type="color" id="color-picker" name="cor-camisa">
 
-        <button type="submit">Personalizar</button>
-    </form>
-</section>
+                    <label for="shirt-text">Texto na Camisa:</label>
+                    <input type="text" id="shirt-text" placeholder="Digite algo...">
+                </div>
+
+                <label for="numero">Quantidade:</label>
+                <input type="number" id="numero" name="numero" min="1" max="99">
+
+                <button type="submit">Personalizar</button>
+            </form>
+        </section>
+    </div>
+</body>
+</html>
