@@ -5,15 +5,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title>
-    <link href="../css/styles.css" rel="stylesheet" type="text/css"> <!-- Corrigir caminho se necessário -->
+    <link href="../css/login.css" rel="stylesheet" type="text/css"> <!-- Corrigir caminho se necessário -->
 </head>
 
 <body>
-    <div class="container">
+    <div class="App">
+        <header class="header-section">
+            <div class="header-left">
+                <img src="../img/logo.png" alt="Logo">
+            </div>
+            <div class="header-center">
+                <h1>Design em Campo</h1>
+            </div>
+            <div class="header-right">
+                <a href="../html/index.html" class="header-button">Voltar</a>
+            </div>
+        </header>
+
+    <div class="custom-section">
         <h1>Cadastro</h1>
         <form action="/cadastro" method="POST" onsubmit="return validatePassword()">
             <!-- CSRF Token para Django -->
-            {% csrf_token %}
+          <!--  {% csrf_token %}-->
 
             <div class="input-group">
                 <label for="username">Nome de Usuário</label>
@@ -35,7 +48,7 @@
                 <input type="password" id="confirm_password" name="confirm_password" required>
             </div>
 
-            <button type="submit">Cadastrar</button>
+            <button type="submit"></a>Cadastrar</button>
         </form>
 
         <p>Já tem uma conta? <a href="../html/login.html">Faça login aqui</a></p>
