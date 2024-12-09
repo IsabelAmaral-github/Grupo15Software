@@ -25,7 +25,6 @@
 
         <!-- Conteúdo principal -->
         <section id="tela" class="info-section">
-        
             <h2>Marketplace</h2>
             <p>Aqui estão alguns dos modelos que você pode escolher para personalizar!</p>
 
@@ -33,29 +32,39 @@
                 <!-- Card 1 -->
                 <div class="product-card">
                     <img src="../img/flu.jpeg" alt="Camisa 1" class="product-image">
-                    <button class="btn like-btn" onclick="incrementCount('like2')">Like <span id="like2">0</span></button>
-                    <button class="btn download-btn" onclick="incrementCount('download2')">Baixar <span id="download2">0</span></button>
+                    <button class="btn like-btn" onclick="handleAction(this, 'like2')">Like <span id="like2">3</span></button>
+                    <button class="btn download-btn" onclick="handleAction(this, 'download2')">Baixar <span id="download2">2</span></button>
                     <button class="buy-btn">Comprar</button>
                 </div>
                 <!-- Card 2 -->
                 <div class="product-card">
                     <img src="../img/flamego.jpeg" alt="Camisa 2" class="product-image">
-                    <button class="btn like-btn" onclick="incrementCount('like1')">Like <span id="like1">0</span></button>
-                    <button class="btn download-btn" onclick="incrementCount('download1')">Baixar <span id="download1">0</span></button>
+                    <button class="btn like-btn" onclick="handleAction(this, 'like1')">Like <span id="like1">1</span></button>
+                    <button class="btn download-btn" onclick="handleAction(this, 'download1')">Baixar <span id="download1">2</span></button>
                     <button class="buy-btn">Comprar</button>
                 </div>
                 <!-- Card Grande -->
                 <div class="product-large-card">
                     <img src="../img/vasco.jpeg" alt="Camisa Grande" class="product-image">
-                    <button class="btn like-btn" onclick="incrementCount('like3')">Like <span id="like3">0</span></button>
-                    <button class="btn download-btn" onclick="incrementCount('download3')">Baixar <span id="download3">0</span></button>
+                    <button class="btn like-btn" onclick="handleAction(this, 'like3')">Like <span id="like3">1</span></button>
+                    <button class="btn download-btn" onclick="handleAction(this, 'download3')">Baixar <span id="download3">4</span></button>
                     <button class="buy-btn">Comprar</button>
                 </div>
             </div>
         </section>
     </div>
 
-    <script src="../js/market.js"></script> <!-- Caminho relativo para o JavaScript -->
+    <script>
+        // Função para incrementar contadores e desativar o botão após o clique
+        function handleAction(button, spanId) {
+            // Incrementa o contador correspondente
+            const span = document.getElementById(spanId);
+            span.textContent = parseInt(span.textContent) + 1;
+
+            // Desativa o botão para impedir novos cliques
+            button.disabled = true;
+        }
+    </script>
 </body>
 
 </html>

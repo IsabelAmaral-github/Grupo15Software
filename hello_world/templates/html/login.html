@@ -7,6 +7,7 @@
     <title>Login</title>
     <!-- Atualizando o caminho do arquivo CSS para a pasta css -->
     <link href="../css/login.css" rel="stylesheet" type="text/css"> <!-- Caminho relativo para o CSS -->
+    <script src="../js/login.js" defer></script>
 </head>
 
 <body>
@@ -22,22 +23,24 @@
                 <a href="../html/index.html" class="header-button">Voltar</a>
             </div>
         </header>
-<body>
-    <div class="custom-section">
-        <h1>Login</h1>
-        <form action="/login" method="POST">
-            <div class="input-group">
-                <label for="username">Nome de Usuário</label>
-                <input type="text" id="username" name="username" required>
+        <body>
+            <div class="custom-section">
+                <h1>Login</h1>
+                <form id="loginForm">
+                    <div class="input-group">
+                        <label for="username">Nome de Usuário</label>
+                        <input type="text" id="username" name="username" required>
+                    </div>
+        
+                    <div class="input-group">
+                        <label for="password">Senha</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+        
+                    <button type="submit" id="buttonIndexL">Entrar</button>
+                </form>
             </div>
-
-            <div class="input-group">
-                <label for="password">Senha</label>
-                <input type="password" id="password" name="password" required>
-            </div>
-
-            <button type="submit">Entrar</button>
-        </form>
+        
 
         <!-- Atualizando o link de cadastro para a pasta html -->
         <p>Não tem uma conta? <a href="../html/cadastro.html">Cadastre-se aqui</a></p> <!-- Caminho relativo para a página de cadastro -->
