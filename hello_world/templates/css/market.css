@@ -18,7 +18,62 @@ body {
     padding: 20px;
   }
   
-  
+  .header-section {
+    display: flex;
+    justify-content: center;  /* Centraliza o texto no meio da barra */
+    align-items: center;
+    background-color: #008037;
+    padding: 25px 20px;
+    width: 100%;
+    color: white;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+.header-left img {
+    height: 50px;
+}
+
+.header-left .back-btn {
+    margin-left: 15px;
+    background-color: #0066cc;
+    color: white;
+    padding: 8px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.header-left .back-btn:hover {
+    background-color: #004d99;
+}
+
+.header-center {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.header-center h1 {
+    font-size: 2rem;
+    color: white;
+}
+
+.header-right a {
+    color: white;
+    background-color: #0066cc;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.header-right a:hover {
+    background-color: #004d99;
+}
   .App-header {
     background-color: #008037;
     color: #fff;
