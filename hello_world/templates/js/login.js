@@ -1,8 +1,21 @@
-    // Seleciona o botão pelo ID
-    const buttonIndex = document.getElementById('buttonIndexL');
+document.getElementById('loginForm').addEventListener('submit', function (event) {
+    event.preventDefault(); // Evita o envio do formulário
 
-    // Adiciona um evento de clique ao botão
-    buttonIndex.addEventListener('click', function () {
-        // Redireciona para o index.html
-        window.location.href = 'index.html';
-    });
+    // Obter valores dos campos
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    // Obter dados de usuários armazenados no Local Storage
+    const users = JSON.parse(localStorage.getItem('users')) || [];
+
+    // Verificar se o usuário e a senha coincidem
+    const user = users.find(user => user.username === username && user.password === password);
+
+    if (user) {
+        alert(`Bem-vindo, ${user.username}!`);
+        // Redirecionar para a página inicial ou outra página após login bem-sucedido
+        window.location.href = '../html/index.html';
+    } else {
+        alert('Usuário ou senha incorretos. Por favor, tente novamente.');
+    }
+});

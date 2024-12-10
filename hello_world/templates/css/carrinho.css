@@ -118,6 +118,22 @@ body {
     color: #555;
 }
 
+.add-btn {
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-right: 10px;
+}
+
+.add-btn:hover {
+    background-color: #219150;
+}
+
 .remove-btn {
     background-color: #e74c3c;
     color: white;

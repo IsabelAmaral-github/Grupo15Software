@@ -60,14 +60,24 @@
 
             cartItemsContainer.innerHTML = cartItems
                 .map(item => {
-                    total += parseFloat(item.price);
+                    // Garantir que quantity seja um número inteiro
+                    item.quantity = item.quantity || 1;
+
+                    // Garantir que price seja tratado como número
+                    const itemPrice = parseFloat(item.price) || 0;
+
+                    const itemTotal = itemPrice * item.quantity;
+                    total += itemTotal;
                     return `
                         <div class="cart-item">
                             <img src="${item.image}" alt="${item.name}" class="cart-item-image">
                             <div class="cart-item-details">
                                 <h4>${item.name}</h4>
-                                <p>Preço: R$ ${parseFloat(item.price).toFixed(2)}</p>
+                                <p>Preço Unitário: R$ ${itemPrice.toFixed(2)}</p>
+                                <p>Quantidade: ${item.quantity}</p>
+                                <p>Total: R$ ${itemTotal.toFixed(2)}</p>
                             </div>
+                            <button class="add-btn" data-id="${item.id}">Adicionar</button>
                             <button class="remove-btn" data-id="${item.id}">Remover</button>
                         </div>
                     `;
@@ -78,17 +88,43 @@
             cartTotal.textContent = `Total: R$ ${total.toFixed(2)}`;
         }
 
+        // Função para adicionar um item ao carrinho
+        function addItem(event) {
+            const idToAdd = event.target.getAttribute('data-id');
+            const itemIndex = cartItems.findIndex(item => item.id === idToAdd);
+            if (itemIndex !== -1) {
+                cartItems[itemIndex].quantity = (cartItems[itemIndex].quantity || 1) + 1;
+                localStorage.setItem('cart', JSON.stringify(cartItems));
+                renderCartItems();
+                addEventListeners();
+            }
+        }
+
         // Função para remover um item do carrinho
         function removeItem(event) {
             const idToRemove = event.target.getAttribute('data-id');
-            const updatedCart = cartItems.filter(item => item.id !== idToRemove);
-            localStorage.setItem('cart', JSON.stringify(updatedCart));
-            location.reload(); // Recarregar a página para atualizar o carrinho
+            const itemIndex = cartItems.findIndex(item => item.id === idToRemove);
+            if (itemIndex !== -1) {
+                if (cartItems[itemIndex].quantity > 1) {
+                    cartItems[itemIndex].quantity -= 1;
+                } else {
+                    cartItems.splice(itemIndex, 1);
+                }
+                localStorage.setItem('cart', JSON.stringify(cartItems));
+                renderCartItems();
+                addEventListeners();
+            }
         }
 
-        // Adicionar evento de remoção aos botões de "Remover"
-        function addRemoveEventListeners() {
+        // Adicionar eventos aos botões de "Adicionar" e "Remover"
+        function addEventListeners() {
+            const addButtons = document.querySelectorAll('.add-btn');
             const removeButtons = document.querySelectorAll('.remove-btn');
+
+            addButtons.forEach(button =>
+                button.addEventListener('click', addItem)
+            );
+
             removeButtons.forEach(button =>
                 button.addEventListener('click', removeItem)
             );
@@ -96,7 +132,7 @@
 
         // Inicialização da página
         renderCartItems();
-        addRemoveEventListeners();
+        addEventListeners();
     </script>
 </body>
 
