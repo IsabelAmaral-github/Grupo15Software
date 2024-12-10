@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -26,28 +26,35 @@
         <!-- Conteúdo principal -->
         <section id="tela" class="info-section">
             <h2>Marketplace</h2>
-            <p>Aqui estão alguns dos modelos que você pode escolher para personalizar!</p>
+            <p>Aqui estão alguns dos modelos que você pode escolher já personalizados!</p>
 
             <div class="product-gallery">
                 <!-- Card 1 -->
                 <div class="product-card">
                     <img src="../img/flu.jpeg" alt="Camisa 1" class="product-image">
-                    <button class="btn like-btn" onclick="handleAction(this, 'like2')">Like <span id="like2">3</span></button>
-                    <button class="btn download-btn" onclick="handleAction(this, 'download2')">Baixar <span id="download2">2</span></button>
+                    <button class="btn like-btn" onclick="handleAction(this, 'like-1')">Like <span id="like-1">3</span></button>
+                    <button class="btn download-btn" onclick="downloadImage('../img/flu.jpeg', 'flu.jpeg')">Baixar <span id="download-1">2</span></button>
                     <button class="buy-btn">Comprar</button>
                 </div>
                 <!-- Card 2 -->
                 <div class="product-card">
                     <img src="../img/flamego.jpeg" alt="Camisa 2" class="product-image">
-                    <button class="btn like-btn" onclick="handleAction(this, 'like1')">Like <span id="like1">1</span></button>
-                    <button class="btn download-btn" onclick="handleAction(this, 'download1')">Baixar <span id="download1">2</span></button>
+                    <button class="btn like-btn" onclick="handleAction(this, 'like-2')">Like <span id="like-2">1</span></button>
+                    <button class="btn download-btn" onclick="downloadImage('../img/flamego.jpeg', 'flamego.jpeg')">Baixar <span id="download-2">2</span></button>
                     <button class="buy-btn">Comprar</button>
                 </div>
                 <!-- Card Grande -->
                 <div class="product-large-card">
                     <img src="../img/vasco.jpeg" alt="Camisa Grande" class="product-image">
-                    <button class="btn like-btn" onclick="handleAction(this, 'like3')">Like <span id="like3">1</span></button>
-                    <button class="btn download-btn" onclick="handleAction(this, 'download3')">Baixar <span id="download3">4</span></button>
+                    <button class="btn like-btn" onclick="handleAction(this, 'like-3')">Like <span id="like-3">1</span></button>
+                    <button class="btn download-btn" onclick="downloadImage('../img/vasco.jpeg', 'vasco.jpeg')">Baixar <span id="download-3">4</span></button>
+                    <button class="buy-btn">Comprar</button>
+                </div>
+                <!-- Card 3 -->
+                <div class="product-card">
+                    <img src="../img/botafogo.jpeg" alt="Camisa 3" class="product-image">
+                    <button class="btn like-btn" onclick="handleAction(this, 'like-4')">Like <span id="like-4">1</span></button>
+                    <button class="btn download-btn" onclick="downloadImage('../img/botafogo.jpeg', 'botafogo.jpeg')">Baixar <span id="download-4">2</span></button>
                     <button class="buy-btn">Comprar</button>
                 </div>
             </div>
@@ -57,12 +64,19 @@
     <script>
         // Função para incrementar contadores e desativar o botão após o clique
         function handleAction(button, spanId) {
-            // Incrementa o contador correspondente
             const span = document.getElementById(spanId);
-            span.textContent = parseInt(span.textContent) + 1;
+            if (span) {
+                span.textContent = parseInt(span.textContent) + 1;
+                button.disabled = true;
+            }
+        }
 
-            // Desativa o botão para impedir novos cliques
-            button.disabled = true;
+        // Função para baixar a imagem
+        function downloadImage(imageSrc, fileName) {
+            const link = document.createElement('a');
+            link.href = imageSrc;
+            link.download = fileName;
+            link.click();
         }
     </script>
 </body>
