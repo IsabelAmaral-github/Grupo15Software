@@ -36,6 +36,10 @@ document.getElementById('cadastroForm').addEventListener('submit', function (eve
     });
     localStorage.setItem('users', JSON.stringify(users));
 
-    alert('Cadastro realizado com sucesso!');
-    window.location.href = '../html/login.html'; // Redirecionar para a página de login
+    // Registrar o estado de login
+    localStorage.setItem('isLoggedIn', true);
+    localStorage.setItem('currentUser', JSON.stringify({ username, email })); // Opcional: salvar usuário atual
+
+    alert('Cadastro realizado com sucesso! Você está logado.');
+    window.location.href = '../html/index.html'; // Redirecionar para a página inicial
 });

@@ -12,7 +12,12 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
     const user = users.find(user => user.username === username && user.password === password);
 
     if (user) {
+        // Armazenar estado de login no LocalStorage
+        localStorage.setItem('isLoggedIn', true);
+        localStorage.setItem('currentUser', JSON.stringify(user)); // Salva informações do usuário logado
+
         alert(`Bem-vindo, ${user.username}!`);
+        
         // Redirecionar para a página inicial ou outra página após login bem-sucedido
         window.location.href = '../html/index.html';
     } else {
