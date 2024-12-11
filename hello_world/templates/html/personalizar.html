@@ -5,16 +5,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <!-- Atualizando o caminho do arquivo CSS para a pasta css -->
-    <link href="../css/mainaintigo.css" rel="stylesheet" type="text/css"> <!-- Caminho relativo para o CSS -->
+    <link href="../css/mainaintigo.css" rel="stylesheet" type="text/css">
+    <style>
+        .shirt-container1 {
+            display: flex;
+            gap: 20px;
+        }
+        .shirt-preview {
+            width: 100px;
+            height: 150px;
+            background-color: #ddd;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
     <div class="App">
-        <!-- Cabeçalho -->
         <header class="header-section">
             <div class="header-left">
                 <img src="../img/logo.png" alt="Logo">
-                <a href="../html/index.html" class="back-btn">Página Inicial</a> <!-- Novo botão de voltar -->
+                <a href="../html/index.html" class="back-btn">Página Inicial</a>
             </div>
             <div class="header-center">
                 <h1>Design em Campo</h1>
@@ -24,8 +40,7 @@
                 <a href="../html/cart.html" class="header-button">Carrinho</a>
             </div>
         </header>
-        
-        <!-- Seções da página -->
+
         <section id="como-funciona" class="info-section">
             <h2>Como Funciona?</h2>
             <p>Personalize a camisa do seu time com um estilo único que reflete a sua paixão e personalidade.</p>
@@ -33,7 +48,7 @@
 
         <section id="personalizacao" class="form-section">
             <h2>Personalize sua Camisa</h2>
-            <form>
+            <form onsubmit="return false;">
                 <label for="nome-time">Nome do Time:</label>
                 <select id="nome-time" name="nome-time" required>
                     <option value="">Selecione um time</option>
@@ -45,8 +60,8 @@
 
                 <div class="shirt-color-picker">
                     <div class="shirt-container1">
-                        <div class="shirt-preview" id="shirt1"></div>
-                        <div class="shirt-preview" id="shirt2"></div>
+                        <div class="shirt-preview" id="shirt1" data-side="front">Frente</div>
+                        <div class="shirt-preview" id="shirt2" data-side="back">Verso</div>
                     </div>
 
                     <label for="color-picker">Selecione a Cor da Camisa:</label>
@@ -54,14 +69,70 @@
 
                     <label for="shirt-text">Texto na Camisa:</label>
                     <input type="text" id="shirt-text" placeholder="Digite algo...">
+
+                    <label for="shirt-side">Lado do Texto:</label>
+                    <select id="shirt-side">
+                        <option value="front">Frente</option>
+                        <option value="back">Verso</option>
+                        <option value="both">Ambos</option>
+                    </select>
                 </div>
 
                 <label for="numero">Quantidade:</label>
                 <input type="number" id="numero" name="numero" min="1" max="99">
 
-                <button type="submit">Personalizar</button>
+                <button type="submit">Comprar</button>
             </form>
         </section>
     </div>
+
+    <script>
+        const colorPicker = document.getElementById('color-picker');
+        const shirtText = document.getElementById('shirt-text');
+        const shirtSide = document.getElementById('shirt-side');
+        const shirts = {
+            front: document.getElementById('shirt1'),
+            back: document.getElementById('shirt2')
+        };
+
+        // Atualizar cor das camisas
+        colorPicker.addEventListener('input', (event) => {
+            const color = event.target.value;
+            shirts.front.style.backgroundColor = color;
+            shirts.back.style.backgroundColor = color;
+        });
+
+        // Atualizar texto nas camisas
+        shirtText.addEventListener('input', () => {
+            const text = shirtText.value;
+            const side = shirtSide.value;
+
+            if (side === 'front') {
+                shirts.front.textContent = text;
+            } else if (side === 'back') {
+                shirts.back.textContent = text;
+            } else if (side === 'both') {
+                shirts.front.textContent = text;
+                shirts.back.textContent = text;
+            }
+        });
+
+        // Atualizar lado do texto selecionado
+        shirtSide.addEventListener('change', () => {
+            const side = shirtSide.value;
+            const text = shirtText.value;
+
+            if (side === 'front') {
+                shirts.front.textContent = text;
+                shirts.back.textContent = 'Verso';
+            } else if (side === 'back') {
+                shirts.front.textContent = 'Frente';
+                shirts.back.textContent = text;
+            } else if (side === 'both') {
+                shirts.front.textContent = text;
+                shirts.back.textContent = text;
+            }
+        });
+    </script>
 </body>
 </html>

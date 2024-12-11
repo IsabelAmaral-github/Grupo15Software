@@ -29,47 +29,48 @@
         <h1 class="team-name">Flamengo</h1>
 
         <div class="product-gallery">
-            <!-- Camisa 1 -->
-            <div class="product-card">
+            <!-- Camisas do Flamengo -->
+            <div class="product-card" data-id="1" data-name="Camisa Flamengo Home 23/24 - Preto e Branco" data-price="159.90" data-image="../img/flacamisa.webp">
                 <img src="../img/flacamisa.webp" alt="Camisa Flamengo 1">
                 <p class="product-name">Camisa Flamengo Home 23/24 - Preto e Branco</p>
                 <p class="product-price">R$ 159,90</p>
                 <button class="buy-btn">Comprar</button>
+                <button class="customize-btn" onclick="window.location.href='../html/personalizar.html'">Personalizar</button>
             </div>
-            <!-- Camisa 2 -->
-            <div class="product-card">
+            <div class="product-card" data-id="2" data-name="Camisa Flamengo Home 23/24 - Preto e Branco" data-price="159.90" data-image="../img/flacamisa.webp">
                 <img src="../img/flacamisa.webp" alt="Camisa Flamengo 2">
                 <p class="product-name">Camisa Flamengo Home 23/24 - Preto e Branco</p>
                 <p class="product-price">R$ 159,90</p>
                 <button class="buy-btn">Comprar</button>
+                <button class="customize-btn" onclick="window.location.href='../html/personalizar.html'">Personalizar</button>
             </div>
-            <!-- Camisa 3 -->
-            <div class="product-card">
+            <div class="product-card" data-id="3" data-name="Camisa Flamengo Third 23/24 - Branco" data-price="159.90" data-image="../img/flacamisa.webp">
                 <img src="../img/flacamisa.webp" alt="Camisa Flamengo 3">
                 <p class="product-name">Camisa Flamengo Third 23/24 - Branco</p>
                 <p class="product-price">R$ 159,90</p>
                 <button class="buy-btn">Comprar</button>
+                <button class="customize-btn" onclick="window.location.href='../html/personalizar.html'">Personalizar</button>
             </div>
-            <!-- Camisa 4 -->
-            <div class="product-card">
+            <div class="product-card" data-id="4" data-name="Camisa Flamengo Away 23/24 - Preto" data-price="159.90" data-image="../img/flacamisa.webp">
                 <img src="../img/flacamisa.webp" alt="Camisa Flamengo 4">
                 <p class="product-name">Camisa Flamengo Away 23/24 - Preto</p>
                 <p class="product-price">R$ 159,90</p>
                 <button class="buy-btn">Comprar</button>
+                <button class="customize-btn" onclick="window.location.href='../html/personalizar.html'">Personalizar</button>
             </div>
-            <!-- Camisa 5 -->
-            <div class="product-card">
+            <div class="product-card" data-id="5" data-name="Camisa Flamengo Home 23/24 - Preto e Branco" data-price="159.90" data-image="../img/flacamisa.webp">
                 <img src="../img/flacamisa.webp" alt="Camisa Flamengo 5">
                 <p class="product-name">Camisa Flamengo Home 23/24 - Preto e Branco</p>
                 <p class="product-price">R$ 159,90</p>
                 <button class="buy-btn">Comprar</button>
+                <button class="customize-btn" onclick="window.location.href='../html/personalizar.html'">Personalizar</button>
             </div>
-            <!-- Camisa 6 -->
-            <div class="product-card">
+            <div class="product-card" data-id="6" data-name="Camisa Flamengo Third 23/24 - Branco" data-price="159.90" data-image="../img/flacamisa.webp">
                 <img src="../img/flacamisa.webp" alt="Camisa Flamengo 6">
                 <p class="product-name">Camisa Flamengo Third 23/24 - Branco</p>
                 <p class="product-price">R$ 159,90</p>
                 <button class="buy-btn">Comprar</button>
+                <button class="customize-btn" onclick="window.location.href='../html/personalizar.html'">Personalizar</button>
             </div>
         </div>
 
@@ -78,5 +79,32 @@
             <p>Obrigado por personalizar com a Design em Campo!</p>
         </footer>
     </div>
+
+    <script>
+        // Seleciona todos os botões de compra
+        const buyButtons = document.querySelectorAll('.buy-btn');
+
+        // Função para adicionar ao carrinho
+        function addToCart(event) {
+            const productCard = event.target.closest('.product-card'); // Encontra o elemento do produto
+            const product = {
+                id: productCard.getAttribute('data-id'),
+                name: productCard.getAttribute('data-name'),
+                price: productCard.getAttribute('data-price'),
+                image: productCard.getAttribute('data-image'),
+            };
+
+            // Recupera o carrinho existente ou cria um novo
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.push(product);
+
+            // Atualiza o LocalStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert(`${product.name} foi adicionado ao carrinho!`);
+        }
+
+        // Adiciona o evento de clique a todos os botões
+        buyButtons.forEach(button => button.addEventListener('click', addToCart));
+    </script>
 </body>
 </html>

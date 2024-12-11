@@ -41,7 +41,32 @@
             <p>Obrigado por personalizar com a Design em Campo!</p>
         </footer>
     </div>
+    <script>
+// Simular verificação de login com LocalStorage
+const isUserLoggedIn = JSON.parse(localStorage.getItem('isLoggedIn')) || false; // Verifica login
+const currentUser = JSON.parse(localStorage.getItem('currentUser')); // Dados do usuário atual
+const checkoutBtn = document.getElementById('checkout-btn');
 
+// Função para finalizar a compra
+function handleCheckout() {
+    if (isUserLoggedIn) {
+        // Redireciona para a página de finalização se estiver logado
+        alert(`Obrigado, ${currentUser?.username || 'Usuário'}! Você será redirecionado para finalizar sua compra.`);
+        window.location.href = '../html/final.html';
+    } else {
+        // Exibe mensagem de erro se não estiver logado
+        alert('Você precisa estar logado para finalizar a compra. Faça login ou cadastre-se!');
+        window.location.href = '../html/login.html'; // Redireciona para login
+    }
+}
+
+// Adicionar evento ao botão de checkout
+checkoutBtn.addEventListener('click', (event) => {
+    event.preventDefault(); // Previne comportamento padrão
+    handleCheckout();
+});
+
+    </script>
     <script>
         // Recuperar os itens do LocalStorage
         const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
