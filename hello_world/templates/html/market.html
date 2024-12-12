@@ -14,48 +14,90 @@
         <header class="header-section">
             <div class="header-left">
                 <img src="../img/logo.png" alt="Logo">
+                <a href="../html/index.html" class="back-btn">Página Inicial</a> <!-- Novo botão de voltar -->
             </div>
             <div class="header-center">
                 <h1>Design em Campo</h1>
             </div>
             <div class="header-right">
-                <a href="../html/index.html" class="header-button">Voltar</a>
+                <a href="../html/login.html" class="header-button">Login</a>
+                <a href="../html/cart.html" class="header-button">Carrinho</a>
             </div>
         </header>
 
         <!-- Conteúdo principal -->
         <section id="tela" class="info-section">
-        
             <h2>Marketplace</h2>
-            <p>Aqui estão alguns dos modelos que você pode escolher para personalizar!</p>
+            <p>Aqui estão alguns dos modelos que você pode escolher já personalizados!</p>
 
             <div class="product-gallery">
                 <!-- Card 1 -->
-                <div class="product-card">
+                <div class="product-card" data-id="1" data-name="Camisa Fluminense" data-price="200" data-image="../img/flu.jpeg">
                     <img src="../img/flu.jpeg" alt="Camisa 1" class="product-image">
-                    <button class="btn like-btn" onclick="incrementCount('like2')">Like <span id="like2">0</span></button>
-                    <button class="btn download-btn" onclick="incrementCount('download2')">Baixar <span id="download2">0</span></button>
+                    <button class="btn like-btn" onclick="handleAction(this, 'like2')">Like <span id="like2">3</span></button>
+                    <button class="btn download-btn" onclick="handleAction(this, 'download2')">Baixar <span id="download2">2</span></button>
                     <button class="buy-btn">Comprar</button>
                 </div>
                 <!-- Card 2 -->
-                <div class="product-card">
+                <div class="product-card" data-id="2" data-name="Camisa Flamengo" data-price="320" data-image="../img/flamego.jpeg">
                     <img src="../img/flamego.jpeg" alt="Camisa 2" class="product-image">
-                    <button class="btn like-btn" onclick="incrementCount('like1')">Like <span id="like1">0</span></button>
-                    <button class="btn download-btn" onclick="incrementCount('download1')">Baixar <span id="download1">0</span></button>
+                    <button class="btn like-btn" onclick="handleAction(this, 'like1')">Like <span id="like1">1</span></button>
+                    <button class="btn download-btn" onclick="handleAction(this, 'download1')">Baixar <span id="download1">2</span></button>
                     <button class="buy-btn">Comprar</button>
                 </div>
                 <!-- Card Grande -->
-                <div class="product-large-card">
+                <div class="product-large-card" data-id="3" data-name="Camisa Vasco" data-price="250" data-image="../img/vasco.jpeg">
                     <img src="../img/vasco.jpeg" alt="Camisa Grande" class="product-image">
-                    <button class="btn like-btn" onclick="incrementCount('like3')">Like <span id="like3">0</span></button>
-                    <button class="btn download-btn" onclick="incrementCount('download3')">Baixar <span id="download3">0</span></button>
+                    <button class="btn like-btn" onclick="handleAction(this, 'like3')">Like <span id="like3">1</span></button>
+                    <button class="btn download-btn" onclick="handleAction(this, 'download3')">Baixar <span id="download3">4</span></button>
+                    <button class="buy-btn">Comprar</button>
+                </div>
+                <div class="product-card" data-id="4" data-name="Camisa Botafogo" data-price="280" data-image="../img/botafogo.jpeg">
+                    <img src="../img/botafogo.jpeg" alt="Camisa 2" class="product-image">
+                    <button class="btn like-btn" onclick="handleAction(this, 'like0')">Like <span id="like0">1</span></button>
+                    <button class="btn download-btn" onclick="handleAction(this, 'download1')">Baixar <span id="download1">2</span></button>
                     <button class="buy-btn">Comprar</button>
                 </div>
             </div>
         </section>
     </div>
 
-    <script src="../js/market.js"></script> <!-- Caminho relativo para o JavaScript -->
+    <script>
+        // Função para incrementar contadores e desativar o botão após o clique
+        function handleAction(button, spanId) {
+            // Incrementa o contador correspondente
+            const span = document.getElementById(spanId);
+            span.textContent = parseInt(span.textContent) + 1;
+
+            // Desativa o botão para impedir novos cliques
+            button.disabled = true;
+        }
+
+        // Seleciona todos os botões de compra
+        const buyButtons = document.querySelectorAll('.buy-btn');
+
+        // Função para adicionar ao carrinho
+        function addToCart(event) {
+            const productCard = event.target.closest('.product-card'); // Encontra o elemento do produto
+            const product = {
+                id: productCard.getAttribute('data-id'),
+                name: productCard.getAttribute('data-name'),
+                price: productCard.getAttribute('data-price'),
+                image: productCard.getAttribute('data-image'),
+            };
+
+            // Recupera o carrinho existente ou cria um novo
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.push(product);
+
+            // Atualiza o LocalStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert(`${product.name} foi adicionado ao carrinho!`);
+        }
+
+        // Adiciona o evento de clique a todos os botões
+        buyButtons.forEach(button => button.addEventListener('click', addToCart));
+    </script>
 </body>
 
 </html>

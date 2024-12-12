@@ -147,11 +147,12 @@ footer {
     background-color: #008037;
     color: white;
     text-align: center;
-    padding: 15px;
-    margin-top: 30px;
+    padding: 0px;
+    margin-top: 40px;
 }
 
 footer p {
+    margin-top: 25px;
     font-weight: bold;
     font-size: 1.1rem;
     color: white; /* Garantindo que o texto do footer fique branco */

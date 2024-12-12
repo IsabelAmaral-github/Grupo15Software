@@ -14,7 +14,7 @@
         <header class="header-section">
             <div class="header-left">
                 <img src="../img/logo.png" alt="Logo">
-                <a href="../html/index.html" class="header-button">Página Inicial</a> <!-- Botão de Voltar -->
+                <a href="../html/index.html" class="header-button">Página Inicial</a>
             </div>
             <div class="header-center">
                 <h1>Design em Campo</h1>
@@ -29,47 +29,73 @@
         <div class="image-description">
             <h1 class="promotions-title">Promoções</h1>
             <p>Aproveite as melhores ofertas! Promoções Imperdíveis! Descontos exclusivos para camisas personalizadas dos seus times favoritos.</p>
-               
+        </div>
+
+        <!-- Galeria de Produtos -->
+        <div class="product-gallery">
+            <!-- Produto 1 -->
+            <div class="product-card" data-id="3" data-name="Camisa Botafogo Personalizada" data-price="129.90" data-image="../img/botcamisa.png">
+                <img src="../img/botcamisa.png" alt="Camisa Flamengo Home 23/24 - Preto e Branco">
+                <p class="product-name">Camisa Botafogo Personalizada</p>
+                <p class="product-price">
+                    <span class="old-price">R$ 159,90</span>
+                    <span class="new-price">R$ 139,90</span>
+                </p>
+                <button class="buy-btn">Comprar</button>
+            </div>
+            <!-- Produto 2 -->
+            <div class="product-card" data-id="2" data-name="Camisa Flamengo Personalizada" data-price="129.90" data-image="../img/flacamisa.webp">
+                <img src="../img/flacamisa.webp" alt="Camisa Flamengo Third 23/24 - Branco">
+                <p class="product-name">Camisa Flamengo Personalizada</p>
+                <p class="product-price">
+                    <span class="old-price">R$ 159,90</span>
+                    <span class="new-price">R$ 149,90</span>
+                </p>
+                <button class="buy-btn">Comprar</button>
+            </div>
+            <div class="product-card" data-id="1" data-name="Camisa Fluminense Personalizada" data-price="129.90" data-image="../img/flucamisa.webp">
+                <img src="../img/flu.jpeg" alt="Camisa">
+                <p class="product-name">Camisa Fluminense Personalizada</p>
+                <p class="product-price">
+                    <span class="old-price">R$ 159,90</span>
+                    <span class="new-price">R$ 129,90</span>
+                </p>
+                <button class="buy-btn">Comprar</button>
             </div>
         </div>
 
-            <!-- Galeria de Produtos -->
-            <div class="product-gallery">
-                <div class="product-card">
-                    <img src="../img/flacamisa.webp" alt="Camisa Flamengo Home 23/24 - Preto e Branco">
-                    <p class="product-name">Camisa Flamengo Home 23/24 - Preto e Branco</p>
-                    <p class="product-price">
-                        <span class="old-price">R$ 159,90</span>
-                        <span class="new-price">R$ 129,90</span>
-                    </p>
-                    <button class="buy-btn">Comprar</button>
-                </div>
-                <div class="product-card">
-                    <img src="../img/flacamisa.webp" alt="Camisa Flamengo Home 23/24 - Preto e Branco">
-                    <p class="product-name">Camisa Flamengo Home 23/24 - Preto e Branco</p>
-                    <p class="product-price">
-                        <span class="old-price">R$ 159,90</span>
-                        <span class="new-price">R$ 129,90</span>
-                    </p>
-                    <button class="buy-btn">Comprar</button>
-                </div>
-                <div class="product-card">
-                    <img src="../img/flacamisa.webp" alt="Camisa Flamengo Third 23/24 - Branco">
-                    <p class="product-name">Camisa Flamengo Third 23/24 - Branco</p>
-                    <p class="product-price">
-                        <span class="old-price">R$ 159,90</span>
-                        <span class="new-price">R$ 129,90</span>
-                    </p>
-                    <button class="buy-btn">Comprar</button>
-                </div>
-            </div>
-        </section>
-
         <!-- Footer -->
         <footer class="footer-section">
-            <p>Obrigado por personalizar com a Design em Campo!</p>
+            <p>Obrigado por comprar com a Design em Campo!</p>
         </footer>
     </div>
+
+    <script>
+        // Seleciona todos os botões de compra
+        const buyButtons = document.querySelectorAll('.buy-btn');
+
+        // Função para adicionar ao carrinho
+        function addToCart(event) {
+            const productCard = event.target.closest('.product-card'); // Encontra o elemento do produto
+            const product = {
+                id: productCard.getAttribute('data-id'),
+                name: productCard.getAttribute('data-name'),
+                price: productCard.getAttribute('data-price'),
+                image: productCard.getAttribute('data-image'),
+            };
+
+            // Recupera o carrinho existente ou cria um novo
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.push(product);
+
+            // Atualiza o LocalStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert(`${product.name} foi adicionado ao carrinho!`);
+        }
+
+        // Adiciona o evento de clique a todos os botões
+        buyButtons.forEach(button => button.addEventListener('click', addToCart));
+    </script>
 </body>
 
 </html>

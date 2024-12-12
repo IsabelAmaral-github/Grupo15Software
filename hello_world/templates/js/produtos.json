@@ -1,0 +1,54 @@
+[
+    {
+        "id": 1,
+        "nome": "Camisa Oficial Botafogo 2024",
+        "preco": 250,
+        "clube": "Botafogo",
+        "descricao": "Camisa oficial do Botafogo, modelo 2024, com design moderno e tecido de alta qualidade para máximo conforto e performance.",
+        "carrinho": false,
+        "qtd_carrinho": 0,
+        "imagem": "img/camisaBotafogo.webp",
+        "favorito": false,
+        "tamanhos_disponiveis": ["P", "M", "G", "GG"],
+        "avaliacao_media": 9.0
+    },
+    {
+        "id": 2,
+        "nome": "Camisa Oficial Flamengo 2024",
+        "preco": 300,
+        "clube": "Flamengo",
+        "descricao": "Camisa oficial do Flamengo, modelo 2024, com as tradicionais listras rubro-negras e tecnologia de última geração para alta performance.",
+        "carrinho": false,
+        "qtd_carrinho": 0,
+        "imagem": "img/camisaFlamengo.webp",
+        "favorito": false,
+        "tamanhos_disponiveis": ["P", "M", "G", "GG"],
+        "avaliacao_media": 9.5
+    },
+    {
+        "id": 3,
+        "nome": "Camisa Oficial Fluminense 2024",
+        "preco": 270,
+        "clube": "Fluminense",
+        "descricao": "Camisa oficial do Fluminense, modelo 2024, com o clássico design tricolor e tecido respirável para maior conforto.",
+        "carrinho": false,
+        "qtd_carrinho": 0,
+        "imagem": "img/camisaFluminense.webp",
+        "favorito": false,
+        "tamanhos_disponiveis": ["P", "M", "G", "GG"],
+        "avaliacao_media": 8.5
+    },
+    {
+        "id": 4,
+        "nome": "Camisa Oficial Vasco 2024",
+        "preco": 280,
+        "clube": "Vasco",
+        "descricao": "Camisa oficial do Vasco, modelo 2024, com o emblemático design da cruz de malta e tecido de alta durabilidade.",
+        "carrinho": false,
+        "qtd_carrinho": 0,
+        "imagem": "img/camisaVasco.webp",
+        "favorito": false,
+        "tamanhos_disponiveis": ["P", "M", "G", "GG"],
+        "avaliacao_media": 8.0
+    }
+]

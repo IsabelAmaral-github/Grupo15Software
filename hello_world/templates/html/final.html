@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>final - Design em Campo</title>
+    <link href="../css/final.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <div class="App">
+        <!-- Header -->
+        <header class="header-section">
+            <div class="header-left">
+                <img src="../img/logo.png" alt="Logo">
+                <a href="../html/index.html" class="header-button">Página Inicial</a>
+            </div>
+            <div class="header-center">
+                <h1>Design em Campo</h1>
+            </div>
+            <div class="header-right">
+                <a href="../html/cart.html" class="header-button">Voltar ao carrinho</a>
+            </div>
+        </header>
+        
+        <div class="cart-container">
+            <h2 class="cart-title">Obrigada por comprar na Design em Campo!</h2>
+            <div class="cart-text">
+                <p>A sua personalização está em boas mãos!<br> Estamos trabalhando para que tudo fique perfeito para você.
+                    <br>  <strong>Equipe Design em Campo <br/> </strong></p>
+                    <p id="produtosC">Produtos Comprados:</p>
+            </div>
+            
+            <!-- Carrinho de Compras -->
+            <div id="cart-items"></div>
+            <div id="cart-total"></div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer-section">
+            <p>Vista seu Time, Mostre seu Estilo!</p>
+        </footer>
+    </div>
+
+    <script>
+        // Recuperar os itens do LocalStorage
+        const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+        const cartItemsContainer = document.getElementById('cart-items');
+        const cartTotal = document.getElementById('cart-total');
+    
+        // Função para renderizar os itens do carrinho
+        function renderCartItems() {
+            if (cartItems.length === 0) {
+                cartItemsContainer.innerHTML = '<p>Seu carrinho está vazio.</p>';
+                cartTotal.textContent = 'Total: R$ 0,00';
+                return;
+            }
+    
+            let total = 0;
+    
+            cartItemsContainer.innerHTML = cartItems
+                .map(item => {
+                    // Garantir que quantity seja um número inteiro
+                    item.quantity = item.quantity || 1;
+    
+                    // Garantir que price seja tratado como número
+                    const itemPrice = parseFloat(item.price) || 0;
+    
+                    const itemTotal = itemPrice * item.quantity;
+                    total += itemTotal;
+                    return `
+                        <div class="cart-item">
+                            <img src="${item.image}" alt="${item.name}" class="cart-item-image">
+                            <div class="cart-item-details">
+                                <h4>${item.name}</h4>
+                                <p>Quantidade: ${item.quantity}</p>
+                            </div>
+                        </div>
+                    `;
+                })
+                .join('');
+    
+            // Atualizar o total do carrinho
+            cartTotal.textContent = `Total: R$ ${total.toFixed(2)}`;
+        }
+    
+        // Inicialização da página
+        renderCartItems();
+    </script>
+</body>
+
+</html>

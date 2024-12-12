@@ -1,71 +1,164 @@
-<html lang="en">
+<!DOCTYPE html>
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Carrinho</title>
-    <!-- Atualizando o caminho do arquivo CSS para a pasta 'css' -->
-    <link href="../css/style.css" rel="stylesheet"> <!-- Caminho atualizado para 'css' -->
+    <title>Carrinho - Design em Campo</title>
+    <link href="../css/carrinho.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
+    <div class="App">
+        <!-- Header -->
+        <header class="header-section">
+            <div class="header-left">
+                <img src="../img/logo.png" alt="Logo">
+                <a href="../html/index.html" class="header-button">Página Inicial</a>
+            </div>
+            <div class="header-center">
+                <h1>Seu Carrinho</h1>
+            </div>
+            <div class="header-right">
+                <a href="../html/login.html" class="header-button">Login ou cadastro</a>
+            </div>
+        </header>
 
-    <header class="header">
-        <div class="logo">
-            <!-- Atualizando o caminho da imagem do logo para a pasta 'img' -->
-            <img src="../img/logo.png" alt="Design em Campo" width="50px"> <!-- Caminho atualizado para 'img' -->
-            <a href="../html/index.html" class="back-btn">Página Inicial</a> 
-            <h1>Design em Campo</h1>
-        </div>
-        <!-- Atualizando o caminho do link de login para a página 'html/login.html' -->
-        <a href="../html/login.html" class="login-btn">Entrar</a> <!-- Caminho atualizado para 'html/login.html' -->
-    </header>
-
-    <main>
+        <!-- Seção do Carrinho -->
         <div class="cart-container">
-
-            <div class="cart-items">
-                <h2>Meu Carrinho</h2>
-                <!-- A estrutura do carrinho foi mantida com o Django Template Language (DTL) -->
-                {% for item in items %}
-                    <div class="cart-item">
-                        <!-- Usando a URL da imagem do item -->
-                        <img src="{{ item.image.url }}" alt="{{ item.name }}" class="item-image">
-                        <div class="item-details">
-                            <h3>{{ item.name }}</h3>
-                            <p>{{ item.description }}</p>
-                            <p class="item-price">R${{ item.price }}</p>
-                        </div>
-                        <!-- Formulário para remover o item do carrinho -->
-                        <form action="{% url 'cart_item_delete' item.id %}" method="post" class="remove-item-form">
-                            {% csrf_token %}
-                            <button type="submit" class="remove-item-btn">X</button>
-                        </form>
-                    </div>
-                {% empty %}
-                    <p>O carrinho está vazio.</p>
-                {% endfor %}
+            <h2 class="cart-title">Produtos no Carrinho</h2>
+            <div id="cart-items">
+                <!-- Os itens serão inseridos aqui dinamicamente -->
             </div>
-
             <div class="cart-summary">
-                <h3>Resumo do Carrinho</h3>
-                <!-- Exibindo o número de itens e o preço total -->
-                <p>Itens ({{ items|length }}) .......... R${{ total_price }}</p>
-                <p>Frete .......... R$30.00</p>
-                <!-- Exibindo o total final incluindo o frete -->
-                <p>Total .......... R${{ total_price|add:"30" }}</p>
-                <!-- Link para a página de checkout -->
-                <a href="../html/checkout.html" class="checkout-btn">Finalizar Compra</a> <!-- Caminho atualizado para 'html/checkout.html' -->
+                <h3 id="cart-total">Total: R$ 0,00</h3>
+                <a href="../html/final.html" id="checkout-btn">Finalizar Compra</a>
             </div>
-
         </div>
-    </main>
 
-    <footer>
-        <!-- Atualizando o caminho da imagem de bola para a pasta 'img' -->
-        <img src="../img/bola.png" alt="Bola" width="50px"> <!-- Caminho atualizado para 'img' -->
-    </footer>
+        <!-- Footer -->
+        <footer class="footer-section">
+            <p>Obrigado por personalizar com a Design em Campo!</p>
+        </footer>
+    </div>
+    <script>
+// Simular verificação de login com LocalStorage
+const isUserLoggedIn = JSON.parse(localStorage.getItem('isLoggedIn')) || false; // Verifica login
+const currentUser = JSON.parse(localStorage.getItem('currentUser')); // Dados do usuário atual
+const checkoutBtn = document.getElementById('checkout-btn');
 
+// Função para finalizar a compra
+function handleCheckout() {
+    if (isUserLoggedIn) {
+        // Redireciona para a página de finalização se estiver logado
+        alert(`Obrigado, ${currentUser?.username || 'Usuário'}! Você será redirecionado para finalizar sua compra.`);
+        window.location.href = '../html/final.html';
+    } else {
+        // Exibe mensagem de erro se não estiver logado
+        alert('Você precisa estar logado para finalizar a compra. Faça login ou cadastre-se!');
+        window.location.href = '../html/login.html'; // Redireciona para login
+    }
+}
+
+// Adicionar evento ao botão de checkout
+checkoutBtn.addEventListener('click', (event) => {
+    event.preventDefault(); // Previne comportamento padrão
+    handleCheckout();
+});
+
+    </script>
+    <script>
+        // Recuperar os itens do LocalStorage
+        const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+        const cartItemsContainer = document.getElementById('cart-items');
+        const cartTotal = document.getElementById('cart-total');
+
+        // Função para renderizar os itens do carrinho
+        function renderCartItems() {
+            if (cartItems.length === 0) {
+                cartItemsContainer.innerHTML = '<p>Seu carrinho está vazio.</p>';
+                cartTotal.textContent = 'Total: R$ 0,00';
+                return;
+            }
+
+            let total = 0;
+
+            cartItemsContainer.innerHTML = cartItems
+                .map(item => {
+                    // Garantir que quantity seja um número inteiro
+                    item.quantity = item.quantity || 1;
+
+                    // Garantir que price seja tratado como número
+                    const itemPrice = parseFloat(item.price) || 0;
+
+                    const itemTotal = itemPrice * item.quantity;
+                    total += itemTotal;
+                    return `
+                        <div class="cart-item">
+                            <img src="${item.image}" alt="${item.name}" class="cart-item-image">
+                            <div class="cart-item-details">
+                                <h4>${item.name}</h4>
+                                <p>Preço Unitário: R$ ${itemPrice.toFixed(2)}</p>
+                                <p>Quantidade: ${item.quantity}</p>
+                                <p>Total: R$ ${itemTotal.toFixed(2)}</p>
+                            </div>
+                            <button class="add-btn" data-id="${item.id}">Adicionar</button>
+                            <button class="remove-btn" data-id="${item.id}">Remover</button>
+                        </div>
+                    `;
+                })
+                .join('');
+
+            // Atualizar o total do carrinho
+            cartTotal.textContent = `Total: R$ ${total.toFixed(2)}`;
+        }
+
+        // Função para adicionar um item ao carrinho
+        function addItem(event) {
+            const idToAdd = event.target.getAttribute('data-id');
+            const itemIndex = cartItems.findIndex(item => item.id === idToAdd);
+            if (itemIndex !== -1) {
+                cartItems[itemIndex].quantity = (cartItems[itemIndex].quantity || 1) + 1;
+                localStorage.setItem('cart', JSON.stringify(cartItems));
+                renderCartItems();
+                addEventListeners();
+            }
+        }
+
+        // Função para remover um item do carrinho
+        function removeItem(event) {
+            const idToRemove = event.target.getAttribute('data-id');
+            const itemIndex = cartItems.findIndex(item => item.id === idToRemove);
+            if (itemIndex !== -1) {
+                if (cartItems[itemIndex].quantity > 1) {
+                    cartItems[itemIndex].quantity -= 1;
+                } else {
+                    cartItems.splice(itemIndex, 1);
+                }
+                localStorage.setItem('cart', JSON.stringify(cartItems));
+                renderCartItems();
+                addEventListeners();
+            }
+        }
+
+        // Adicionar eventos aos botões de "Adicionar" e "Remover"
+        function addEventListeners() {
+            const addButtons = document.querySelectorAll('.add-btn');
+            const removeButtons = document.querySelectorAll('.remove-btn');
+
+            addButtons.forEach(button =>
+                button.addEventListener('click', addItem)
+            );
+
+            removeButtons.forEach(button =>
+                button.addEventListener('click', removeItem)
+            );
+        }
+
+        // Inicialização da página
+        renderCartItems();
+        addEventListeners();
+    </script>
 </body>
 
 </html>
