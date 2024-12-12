@@ -11,6 +11,9 @@
             display: flex;
             gap: 20px;
         }
+form{
+    padding:10px;
+}
         .shirt-preview {
             width: 100px;
             height: 150px;
@@ -23,8 +26,31 @@
             font-weight: bold;
             text-align: center;
         }
+
+        .basic-options {
+            padding: 10px;
+        }
+
+        .custom-options {
+            display: none;
+        }
+
+        canvas {
+            border: 1px solid #000;
+            display: block;
+            margin: 0 auto;
+            margin-left: 170px;
+            padding: 5px;
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+            padding: 3px;
+        }
     </style>
 </head>
+
 <body>
     <div class="App">
         <header class="header-section">
@@ -56,37 +82,47 @@
                     <option value="Flamengo">Flamengo</option>
                     <option value="Vasco">Vasco</option>
                     <option value="Botafogo">Botafogo</option>
+                    <option value="Livre">Sem Modelo</option>
                 </select>
 
-                <div class="shirt-color-picker">
-                    <div class="shirt-container1">
-                        <div class="shirt-preview" id="shirt1" data-side="front">Frente</div>
-                        <div class="shirt-preview" id="shirt2" data-side="back">Verso</div>
+               
+
+                <div class="custom-options">
+                    <div class="shirt-color-picker">
+                        <div class="shirt-container1">
+                            <div class="shirt-preview" id="shirt1" data-side="front">Frente</div>
+                            <div class="shirt-preview" id="shirt2" data-side="back">Verso</div>
+                        </div>
+
+                        <label for="color-picker">Selecione a Cor da Camisa:</label>
+                        <input type="color" id="color-picker" name="cor-camisa">
+
+                        <label for="shirt-text">Texto na Camisa:</label>
+                        <input type="text" id="shirt-text" placeholder="Digite algo...">
+
+                        <label for="shirt-side">Lado do Texto:</label>
+                        <select id="shirt-side">
+                            <option value="front">Frente</option>
+                            <option value="back">Verso</option>
+                            <option value="both">Ambos</option>
+                        </select>
                     </div>
-
-                    <label for="color-picker">Selecione a Cor da Camisa:</label>
-                    <input type="color" id="color-picker" name="cor-camisa">
-
-                    <label for="shirt-text">Texto na Camisa:</label>
-                    <input type="text" id="shirt-text" placeholder="Digite algo...">
-
-                    <label for="shirt-side">Lado do Texto:</label>
-                    <select id="shirt-side">
-                        <option value="front">Frente</option>
-                        <option value="back">Verso</option>
-                        <option value="both">Ambos</option>
-                    </select>
                 </div>
-
-                <label for="numero">Quantidade:</label>
-                <input type="number" id="numero" name="numero" min="1" max="99">
-
-                <button type="submit">Comprar</button>
             </form>
+
+            <canvas id="canvas" width="500" height="500"></canvas>
+            <div class="button-container">
+                <button id="uploadBtn">Adicionar Arquivo</button>
+                <button id="removeBtn">Remover Arquivo</button>
+            </div>
+            <button id="buyBtn">Comprar</button>
         </section>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/fabric@latest/dist/fabric.min.js"></script>
     <script>
+        const nomeTime = document.getElementById('nome-time');
+        const customOptions = document.querySelector('.custom-options');
         const colorPicker = document.getElementById('color-picker');
         const shirtText = document.getElementById('shirt-text');
         const shirtSide = document.getElementById('shirt-side');
@@ -94,12 +130,53 @@
             front: document.getElementById('shirt1'),
             back: document.getElementById('shirt2')
         };
+        const canvas = new fabric.Canvas('canvas');
+        const uploadBtn = document.getElementById('uploadBtn');
+        const removeBtn = document.getElementById('removeBtn');
+        const buyBtn = document.getElementById('buyBtn');
 
-        // Atualizar cor das camisas
+        // Exibe ou oculta as opções de personalização
+        nomeTime.addEventListener('change', () => {
+            const selectedValue = nomeTime.value;
+            if (selectedValue === 'Livre') {
+                customOptions.style.display = 'block';
+                canvas.clear();
+                canvas.setBackgroundColor('#ffffff', canvas.renderAll.bind(canvas));
+            } else {
+                customOptions.style.display = 'none';
+                const teamImages = {
+                    'Fluminense': '../img/flucamisa.webp',
+                    'Flamengo': '../img/flacamisa.webp',
+                    'Vasco': '../img/vascamisa.webp',
+                    'Botafogo': '../img/botcamisa.png'
+                };
+
+                if (teamImages[selectedValue]) {
+                    fabric.Image.fromURL(teamImages[selectedValue], function(img) {
+                        canvas.clear();
+                        img.set({
+                            left: 0,
+                            top: 0,
+                            scaleX: canvas.width / img.width,
+                            scaleY: canvas.height / img.height,
+                            selectable: false
+                        });
+                        canvas.add(img);
+                        canvas.renderAll();
+                    });
+                }
+            }
+        });
+
+        // Atualizar cor das camisas e canvas
         colorPicker.addEventListener('input', (event) => {
             const color = event.target.value;
             shirts.front.style.backgroundColor = color;
             shirts.back.style.backgroundColor = color;
+
+            if (nomeTime.value === 'Livre') {
+                canvas.setBackgroundColor(color, canvas.renderAll.bind(canvas));
+            }
         });
 
         // Atualizar texto nas camisas
@@ -110,6 +187,7 @@
             if (side === 'front') {
                 shirts.front.textContent = text;
             } else if (side === 'back') {
+                shirts.front.textContent = 'Frente';
                 shirts.back.textContent = text;
             } else if (side === 'both') {
                 shirts.front.textContent = text;
@@ -133,6 +211,76 @@
                 shirts.back.textContent = text;
             }
         });
+
+        // Função para carregar uma imagem no canvas
+        uploadBtn.addEventListener('click', () => {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = 'image/*';
+            input.click();
+            
+            input.onchange = (e) => {
+                const file = e.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function (readerEvent) {
+                        fabric.Image.fromURL(readerEvent.target.result, function (img) {
+                            img.set({
+                                left: 100,   // Posição inicial da imagem no canvas
+                                top: 100,    // Posição inicial da imagem no canvas
+                                scaleX: 0.5, // Escala da imagem (ajuste conforme necessário)
+                                scaleY: 0.5, // Escala da imagem (ajuste conforme necessário)
+                                hasControls: true,  // Permite mover e redimensionar a imagem
+                                lockRotation: false  // Permite rotacionar a imagem
+                            });
+                            canvas.add(img);
+                            canvas.renderAll();
+                        });
+                    };
+                    reader.readAsDataURL(file);
+                }
+            };
+        });
+
+        // Função para remover a imagem do canvas
+        removeBtn.addEventListener('click', () => {
+            const activeObject = canvas.getActiveObject();
+            if (activeObject) {
+                canvas.remove(activeObject);
+            } else {
+                canvas.clear();
+            }
+        });
+
+        // Função para adicionar ao carrinho
+        buyBtn.addEventListener('click', () => {
+            const team = nomeTime.value;
+            const quantity = document.getElementById('numero').value || 1; // Se não for especificado, assume 1
+            const productTitle = `Camisa Personalizada`;
+            const price = 200; // Preço fixo da camisa
+
+            // Objeto do produto
+            const product = {
+    id: "1", // Um identificador único para o produto
+    name: `Camisa Personalizada (${team})`, // Nome do produto
+    image: "../img/pers.jpg", // Caminho da imagem
+    price: 200, // Preço do produto
+    quantity: 1
+};
+
+            // Verifica se há um carrinho no localStorage, caso contrário, cria um novo
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            // Adiciona o produto ao carrinho
+            cart.push(product);
+
+            // Salva o carrinho no localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+
+            // Alerta de sucesso
+            alert('Produto adicionado ao carrinho!');
+        });
     </script>
 </body>
+
 </html>
