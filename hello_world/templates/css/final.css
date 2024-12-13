@@ -5,7 +5,6 @@ body {
     color: #333;
     margin: 0;
     padding: 0;
-    
 }
 
 .App {
@@ -87,15 +86,64 @@ body {
     font-weight: bold;
 }
 
-.cart-text{
-        font-family: 'Arial Black', Arial, sans-serif;
-        font-size: 1.1rem; /* Aumente o tamanho do texto para se aproximar */
-        font-weight: bold;
-        color: #555;
-        text-align: center;
-        margin-top: 10px;
-        margin-bottom: 10px;
-        line-height: 1.8; /* Para melhorar o espaçamento entre linhas */
+.cart-text {
+    font-family: 'Arial Black', Arial, sans-serif;
+    font-size: 1.1rem; /* Aumente o tamanho do texto para se aproximar */
+    font-weight: bold;
+    color: #555;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    line-height: 1.8; /* Para melhorar o espaçamento entre linhas */
+}
+
+/* Estilos para os itens do carrinho */
+.cart-item {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding: 15px 0;
+}
+
+.cart-item:last-child {
+    border-bottom: none; /* Remover a borda do último item */
+}
+
+.cart-item-image {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-right: 20px;
+}
+
+.cart-item-details {
+    flex-grow: 1;
+}
+
+.cart-item-details h4 {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.cart-item-details p {
+    font-size: 1rem;
+    color: #666;
+}
+
+.cart-item-details .quantity {
+    font-weight: bold;
+    color: #008037;
+}
+
+/* Estilos para o total do carrinho */
+#cart-total {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    margin-top: 20px;
+    text-align: center;
 }
 
 /* Footer */
@@ -113,6 +161,7 @@ body {
     font-size: 1rem;
     font-weight: bold;
 }
+
 .botao-promo {
     color: white;
     background-color: #0066cc; /* Azul já usado no cabeçalho */
@@ -130,3 +179,6 @@ body {
     background-color: #004d99; /* Azul mais escuro no hover */
 }
 
+#produtosC{
+    color:black
+}
